@@ -6,6 +6,7 @@ import AboutComparisonOperators
 import AboutLogicalOperators
 import AboutMathematicalOperators
 import AboutNumberConversions
+import AboutFunctions
 
 main = runDisplay (Test.suite "The Elm Koans" [
                      AboutAsserts.testSuite,
@@ -13,5 +14,6 @@ main = runDisplay (Test.suite "The Elm Koans" [
                      AboutComparisonOperators.testSuite,
                      AboutLogicalOperators.testSuite,
                      AboutMathematicalOperators.testSuite,
-                     AboutNumberConversions.testSuite
+                     AboutNumberConversions.testSuite,
+                     AboutFunctions.testSuite
                   ])
