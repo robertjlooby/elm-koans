@@ -4,7 +4,6 @@ import ElmTest.Assertion (..)
 import ElmTest.Test as Test
 import TestHelpers (..)
 
-
 testSuite = Test.suite "About Logical Operators" [
               Test.test "not negates a boolean" (assertEqual False (not xBool)),
               Test.test "&& is a logical AND" (assert (True && xBool)),

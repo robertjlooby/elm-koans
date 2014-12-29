@@ -4,7 +4,6 @@ import ElmTest.Assertion (..)
 import ElmTest.Test as Test
 import TestHelpers (..)
 
-
 testSuite = Test.suite "About Mathematical Operators" [
               Test.test "negate gives the negative of a number" (assertEqual -3 (negate xNum)),
               Test.test "abs gives the absolute value of a number" (assertEqual 3 (abs xNum)),

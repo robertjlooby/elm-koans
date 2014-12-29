@@ -4,7 +4,6 @@ import ElmTest.Assertion (..)
 import ElmTest.Test as Test
 import TestHelpers (..)
 
-
 testSuite = Test.suite "About Comparison Operators" [
               Test.test "== tests for equality" (assert (1 == xNum)),
               Test.test "/= tests for inequality" (assert (1 /= 1)),

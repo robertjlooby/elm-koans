@@ -4,7 +4,6 @@ import ElmTest.Assertion (..)
 import ElmTest.Test as Test
 import TestHelpers (..)
 
-
 testSuite = Test.suite "About Literals" [
               Test.test "strings are enclosed in double quotes" (assertEqual "A string" xString),
               Test.test "characters are enclosed in single quotes" (assertEqual 'A' xChar),
