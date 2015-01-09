@@ -1,7 +1,7 @@
 module TestHelpers where
 
 xBool = False
-xString = ""
+xString = "-"
 xChar = '-'
 xNum = 0
 xList = []
