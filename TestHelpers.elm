@@ -5,3 +5,4 @@ xString = ""
 xChar = '-'
 xNum = 0
 xList = []
+xMaybe = Just 0
