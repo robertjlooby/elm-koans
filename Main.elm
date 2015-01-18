@@ -9,6 +9,7 @@ import AboutNumberConversions
 import AboutFunctions
 import AboutLists
 import AboutMaybe
+import AboutResults
 
 main = runDisplay (Test.suite "The Elm Koans" [
                      AboutAsserts.testSuite,
@@ -19,5 +20,6 @@ main = runDisplay (Test.suite "The Elm Koans" [
                      AboutNumberConversions.testSuite,
                      AboutFunctions.testSuite,
                      AboutLists.testSuite,
-                     AboutMaybe.testSuite
+                     AboutMaybe.testSuite,
+                     AboutResults.testSuite
                   ])
