@@ -11,6 +11,7 @@ import AboutLists
 import AboutMaybe
 import AboutResults
 import AboutStrings
+import AboutRegexes
 
 main = runDisplay (Test.suite "The Elm Koans" [
                      AboutAsserts.testSuite,
@@ -23,5 +24,6 @@ main = runDisplay (Test.suite "The Elm Koans" [
                      AboutLists.testSuite,
                      AboutMaybe.testSuite,
                      AboutResults.testSuite,
-                     AboutStrings.testSuite
+                     AboutStrings.testSuite,
+                     AboutRegexes.testSuite
                   ])
