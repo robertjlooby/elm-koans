@@ -13,6 +13,7 @@ import AboutResults
 import AboutStrings
 import AboutRegexes
 import AboutTime
+import AboutDates
 
 main = runDisplay (Test.suite "The Elm Koans" [
                      AboutAsserts.testSuite,
@@ -27,5 +28,6 @@ main = runDisplay (Test.suite "The Elm Koans" [
                      AboutResults.testSuite,
                      AboutStrings.testSuite,
                      AboutRegexes.testSuite,
-                     AboutTime.testSuite
+                     AboutTime.testSuite,
+                     AboutDates.testSuite
                   ])
