@@ -1,5 +1,6 @@
 module TestHelpers where
 import Date
+import Set
 
 xBool = False
 xString = "-"
@@ -11,3 +12,4 @@ xResult = Ok 0
 xTime = 0
 xMonth = Date.Jan
 xDay = Date.Mon
+xSet = Set.singleton 1
