@@ -2,7 +2,7 @@
     "version": "1.0.0",
     "summary": "A set of koans to lead you along the path to enlightenment about elm.",
     "repository": "https://github.com/robertjlooby/ElmKoans.git",
-    "license": "BSD3",
+    "license": "MIT",
     "source-directories": [
         "src",
         "src/Koans"
