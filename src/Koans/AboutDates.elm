@@ -1,8 +1,8 @@
 module AboutDates where
 
-import ElmTest.Assertion (..)
+import ElmTest.Assertion exposing (..)
 import ElmTest.Test as Test
-import TestHelpers (..)
+import TestHelpers exposing (..)
 import Date
 
 -- dates can be created from a Time

@@ -1,8 +1,8 @@
 module AboutLogicalOperators where
 
-import ElmTest.Assertion (..)
+import ElmTest.Assertion exposing (..)
 import ElmTest.Test as Test
-import TestHelpers (..)
+import TestHelpers exposing (..)
 
 testSuite = Test.suite "About Logical Operators" [
               Test.test "not negates a boolean" (assertEqual False (not xBool)),

@@ -1,8 +1,8 @@
 module AboutSets where
 
-import ElmTest.Assertion (..)
+import ElmTest.Assertion exposing (..)
 import ElmTest.Test as Test
-import TestHelpers (..)
+import TestHelpers exposing (..)
 import Set
 
 assertEqualSets set1 set2 = assertEqual (Set.toList set1) (Set.toList set2)

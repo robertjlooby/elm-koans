@@ -1,8 +1,8 @@
 module AboutAsserts where
 
-import ElmTest.Assertion (..)
+import ElmTest.Assertion exposing (..)
 import ElmTest.Test as Test
-import TestHelpers (..)
+import TestHelpers exposing (..)
 
 testSuite = Test.suite "About Asserts" [
               Test.test "assert tests for a true value" (assert xBool),

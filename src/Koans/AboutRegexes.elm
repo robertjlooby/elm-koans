@@ -1,8 +1,8 @@
 module AboutRegexes where
 
-import ElmTest.Assertion (..)
+import ElmTest.Assertion exposing (..)
 import ElmTest.Test as Test
-import TestHelpers (..)
+import TestHelpers exposing (..)
 import List
 import String
 import Regex

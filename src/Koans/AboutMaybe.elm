@@ -1,8 +1,8 @@
 module AboutMaybe where
 
-import ElmTest.Assertion (..)
+import ElmTest.Assertion exposing (..)
 import ElmTest.Test as Test
-import TestHelpers (..)
+import TestHelpers exposing (..)
 import Maybe
 
 testSuite = Test.suite "About Maybe" [

@@ -1,8 +1,8 @@
 module AboutNumberConversions where
 
-import ElmTest.Assertion (..)
+import ElmTest.Assertion exposing (..)
 import ElmTest.Test as Test
-import TestHelpers (..)
+import TestHelpers exposing (..)
 
 testSuite = Test.suite "About Number Conversions" [
               Test.test "toFloat converts an int to a float" (assertEqual xNum (toFloat 5)),

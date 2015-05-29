@@ -1,9 +1,9 @@
 module AboutStrings where
 
 import String
-import ElmTest.Assertion (..)
+import ElmTest.Assertion exposing (..)
 import ElmTest.Test as Test
-import TestHelpers (..)
+import TestHelpers exposing (..)
 
 testSuite = Test.suite "About Strings" [
               Test.test "length returns the string length" (assertEqual xNum (String.length "Hello")),
