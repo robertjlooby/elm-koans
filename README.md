@@ -3,6 +3,6 @@
 ##Instructions
 * get [elm-platform](https://github.com/elm-lang/elm-platform)
 * install the dependencies: run `elm-package install`
-* run `elm-reactor` and open a browser to http://localhost:8000/src/Koans.elm
-* use any editor to change the source files to make the tests pass
+* run `elm-reactor` and open a browser to [http://localhost:8000/src/Koans.elm](http://localhost:8000/src/Koans.elm)
+* use any editor to change the source files, refresh the page, and make the tests pass
   * placeholder values are denoted as `xValueType` and will need to be replaced to make the tests pass
