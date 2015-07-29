@@ -2,7 +2,7 @@ module AboutDates where
 
 import Date
 import ElmTest.Assertion exposing (..)
-import ElmTest.Test as Test
+import ElmTest.Test exposing (suite, test)
 import TestHelpers exposing (..)
 
 
@@ -25,13 +25,13 @@ getField fn date =
 
 
 testSuite =
-  Test.suite
+  suite
     "About Dates"
-    [ Test.test "year gets the year" (assertEqual xNum (Date.year ourDate))
-    , Test.test "month gets the month" (assertEqual xMonth (Date.month ourDate)) -- a type!
-    , Test.test "day gets the day" (assertEqual xNum (Date.day ourDate))
-    , Test.test "dayOfWeek gets the day of the week" (assertEqual xDay (Date.dayOfWeek ourDate)) -- another type
-    , Test.test "hour gets the hour" (assertEqual xString (getField Date.hour parsedDate))
-    , Test.test "minute gets the minute" (assertEqual xString (getField Date.minute parsedDate))
-    , Test.test "second gets the second" (assertEqual xString (getField Date.second parsedDate))
+    [ test "year gets the year" (assertEqual xNum (Date.year ourDate))
+    , test "month gets the month" (assertEqual xMonth (Date.month ourDate)) -- a type!
+    , test "day gets the day" (assertEqual xNum (Date.day ourDate))
+    , test "dayOfWeek gets the day of the week" (assertEqual xDay (Date.dayOfWeek ourDate)) -- another type
+    , test "hour gets the hour" (assertEqual xString (getField Date.hour parsedDate))
+    , test "minute gets the minute" (assertEqual xString (getField Date.minute parsedDate))
+    , test "second gets the second" (assertEqual xString (getField Date.second parsedDate))
     ]
