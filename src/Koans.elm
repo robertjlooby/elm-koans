@@ -8,6 +8,7 @@ import AboutLogicalOperators
 import AboutMathematicalOperators
 import AboutMaybe
 import AboutNumberConversions
+import AboutRecords
 import AboutRegexes
 import AboutResults
 import AboutSets
@@ -36,4 +37,5 @@ main =
          , AboutTime.testSuite
          , AboutDates.testSuite
          , AboutSets.testSuite
+         , AboutRecords.testSuite
          ]
