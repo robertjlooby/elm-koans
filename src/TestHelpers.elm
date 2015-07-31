@@ -36,4 +36,11 @@ xDay = Date.Mon
 
 xSet = Set.singleton 1
 
+
 xRecord = { x = 0, y = 0, z = 0 }
+
+
+xTuple = (0, 0)
+
+
+xTuple2 = (100, "")

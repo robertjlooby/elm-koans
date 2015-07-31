@@ -14,6 +14,7 @@ import AboutResults
 import AboutSets
 import AboutStrings
 import AboutTime
+import AboutTuples
 import AboutUnionTypes
 import ElmTest.Runner.Element exposing (..)
 import ElmTest.Test as Test
@@ -31,6 +32,7 @@ main =
          , AboutNumberConversions.testSuite
          , AboutFunctions.testSuite
          , AboutLists.testSuite
+         , AboutTuples.testSuite
          , AboutMaybe.testSuite
          , AboutResults.testSuite
          , AboutStrings.testSuite
