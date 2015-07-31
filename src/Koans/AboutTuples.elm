@@ -12,6 +12,10 @@ testSuite =
         (assertEqual xTuple (1, 2))
     , test "tuples may also be of mixed types"
         (assertEqual xTuple2 (1, "hey"))
+    , test "there is a special comma syntax for creating tuples"
+        (assertEqual xTuple2 ((,) 1 "hey"))
+    , test "you use as many commas as there would be in the tuple"
+        (assertEqual xTuple3 ((,,) 1 "hey" []))
     , test "fst gets the first element of a 2-tuple"
         (assertEqual xNum (fst xTuple2))
     , test "snd gets the second element of a 2-tuple"
