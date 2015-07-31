@@ -14,6 +14,7 @@ import AboutResults
 import AboutSets
 import AboutStrings
 import AboutTime
+import AboutUnionTypes
 import ElmTest.Runner.Element exposing (..)
 import ElmTest.Test as Test
 
@@ -38,4 +39,5 @@ main =
          , AboutDates.testSuite
          , AboutSets.testSuite
          , AboutRecords.testSuite
+         , AboutUnionTypes.testSuite
          ]
