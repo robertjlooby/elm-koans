@@ -15,7 +15,7 @@ testSuite =
         (assert (String.isEmpty xString))
     , test "reverse returns the reverse of a string"
         (assertEqual xString (String.reverse "Hello"))
-    , test "repeat returns the a string repeated n times"
+    , test "repeat returns the string repeated n times"
         (assertEqual xString (String.repeat 2 "ya"))
     , test "the ++ infix function appends two strings"
         (assertEqual ("Elm" ++ "Lang") xString)
@@ -29,7 +29,7 @@ testSuite =
         (assertEqual (String.split "," "I'm,a,csv") xList)
     , test "slice gets a substring"
         (assertEqual (String.slice 4 12 "I'm a string") xString)
-    , test "negative indicies start from the end"
+    , test "negative indices start from the end"
         (assertEqual (String.slice -8 -1 "I'm a string") xString)
     , test "left takes the first n characters of a string"
         (assertEqual (String.left 3 "I'm a string") xString)
