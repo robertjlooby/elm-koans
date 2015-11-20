@@ -1,3 +1,4 @@
+import AboutArrays
 import AboutAsserts
 import AboutComparisonOperators
 import AboutDates
@@ -32,6 +33,7 @@ main =
          , AboutNumberConversions.testSuite
          , AboutFunctions.testSuite
          , AboutLists.testSuite
+         , AboutArrays.testSuite
          , AboutTuples.testSuite
          , AboutMaybe.testSuite
          , AboutResults.testSuite
