@@ -32,10 +32,10 @@ main =
          , AboutMathematicalOperators.testSuite
          , AboutNumberConversions.testSuite
          , AboutFunctions.testSuite
+         , AboutMaybe.testSuite
          , AboutLists.testSuite
          , AboutArrays.testSuite
          , AboutTuples.testSuite
-         , AboutMaybe.testSuite
          , AboutResults.testSuite
          , AboutStrings.testSuite
          , AboutRegexes.testSuite

@@ -19,8 +19,6 @@ testSuite =
         (assertEqual xList (List.reverse [1, 2, 3]))
     , test "member tests if a list includes a value"
         (assertEqual xBool (List.member 2 [1, 2, 3]))
-      -- the next 3 functions return Maybes which are covered soon
-      -- so don't worry about the "Just" syntax just yet
     , test "head returns the first item in a list"
         (assertEqual (Just xNum) (List.head [1, 2, 3]))
     , test "minimum returns the minimum of a list of comparables"

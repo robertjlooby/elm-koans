@@ -30,7 +30,6 @@ testSuite =
     , test "mapping is just like with lists" -- so is indexedMap, filter, foldl, foldr
         (assertEqual (fromList xList) (Array.map (\i -> i * 3) <| fromList [0, 1, 2]))
     , test "unlike with lists, you can get the value at an index"
-        -- again, don't worry about the Just just yet
         (assertEqual (Just xNum) (Array.get 1 <| fromList [0, 1, 2]))
     , test "and set the value at an index"
         (assertEqual (fromList xList) (Array.set 1 5 <| fromList [0, 1, 2]))
