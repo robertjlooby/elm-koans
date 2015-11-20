@@ -16,6 +16,4 @@ testSuite =
         (assert (False || xBool))
     , test "xor is a logical XOR"
         (assert (False `xor` xBool))
-    , test "otherwise is an alias for True"
-        (assertEqual otherwise xBool)
     ]
