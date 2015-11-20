@@ -13,7 +13,7 @@ xString = "-"
 xChar = '-'
 
 
-xNum = 0
+xNum = -1
 
 
 xList = []

@@ -2,6 +2,7 @@ import AboutArrays
 import AboutAsserts
 import AboutComparisonOperators
 import AboutDates
+import AboutDictionaries
 import AboutFunctions
 import AboutLists
 import AboutLiterals
@@ -36,6 +37,7 @@ main =
          , AboutLists.testSuite
          , AboutArrays.testSuite
          , AboutTuples.testSuite
+         , AboutDictionaries.testSuite
          , AboutResults.testSuite
          , AboutStrings.testSuite
          , AboutRegexes.testSuite
