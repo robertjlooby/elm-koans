@@ -18,13 +18,12 @@ import AboutStrings
 import AboutTime
 import AboutTuples
 import AboutUnionTypes
-import ElmTest.Runner.Element exposing (..)
-import ElmTest.Test as Test
+import ElmTest exposing (..)
 
 
 main =
-  runDisplay
-    <| Test.suite
+  elementRunner
+    <| suite
          "The Elm Koans"
          [ AboutAsserts.testSuite
          , AboutLiterals.testSuite

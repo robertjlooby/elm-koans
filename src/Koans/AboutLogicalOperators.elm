@@ -1,7 +1,6 @@
 module AboutLogicalOperators where
 
-import ElmTest.Assertion exposing (..)
-import ElmTest.Test exposing (suite, test)
+import ElmTest exposing (..)
 import TestHelpers exposing (..)
 
 

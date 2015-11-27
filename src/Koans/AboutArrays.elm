@@ -1,7 +1,6 @@
 module AboutArrays where
 
-import ElmTest.Assertion exposing (..)
-import ElmTest.Test exposing (suite, test)
+import ElmTest exposing (..)
 import Array exposing (fromList)
 import TestHelpers exposing (..)
 
