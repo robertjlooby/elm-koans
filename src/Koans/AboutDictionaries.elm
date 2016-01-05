@@ -1,7 +1,6 @@
 module AboutDictionaries where
 
-import ElmTest.Assertion exposing (..)
-import ElmTest.Test exposing (suite, test)
+import ElmTest exposing (..)
 import Dict
 import TestHelpers exposing (..)
 

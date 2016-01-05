@@ -1,7 +1,6 @@
 module AboutMaybe where
 
-import ElmTest.Assertion exposing (..)
-import ElmTest.Test exposing (suite, test)
+import ElmTest exposing (..)
 import Maybe
 import TestHelpers exposing (..)
 

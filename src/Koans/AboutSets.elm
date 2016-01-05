@@ -1,7 +1,6 @@
 module AboutSets where
 
-import ElmTest.Assertion exposing (..)
-import ElmTest.Test exposing (suite, test)
+import ElmTest exposing (..)
 import Set
 import TestHelpers exposing (..)
 
