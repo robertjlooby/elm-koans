@@ -1,49 +1,64 @@
-module TestHelpers where
+module TestHelpers (..) where
 
 import Date
 import Set
 
 
-xBool = False
+xBool =
+    False
 
 
-xString = "-"
+xString =
+    "-"
 
 
-xChar = '-'
+xChar =
+    '-'
 
 
-xNum = -1
+xNum =
+    -1
 
 
-xList = []
+xList =
+    []
 
 
-xMaybe = Just 0
+xMaybe =
+    Just 0
 
 
-xResult = Ok 0
+xResult =
+    Ok 0
 
 
-xTime = 0
+xTime =
+    0
 
 
-xMonth = Date.Apr
+xMonth =
+    Date.Apr
 
 
-xDay = Date.Mon
+xDay =
+    Date.Mon
 
 
-xSet = Set.singleton 1
+xSet =
+    Set.singleton 1
 
 
-xRecord = { x = 0, y = 0, z = 0 }
+xRecord =
+    { x = 0, y = 0, z = 0 }
 
 
-xTuple = (0, 0)
+xTuple =
+    ( 0, 0 )
 
 
-xTuple2 = (100, "")
+xTuple2 =
+    ( 100, "" )
 
 
-xTuple3 = (1, "hello", [1,2,3])
+xTuple3 =
+    ( 1, "hello", [ 1, 2, 3 ] )
