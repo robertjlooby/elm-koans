@@ -11,27 +11,27 @@ testSuite =
             "toFloat converts an int to a float"
             (assertEqual xNum (toFloat 5))
         , test
-            "floor converts an float to a int (rounding down)"
+            "floor converts a float to an int (rounding down)"
             (assertEqual xNum (floor 3.6))
         , test
-            "floor converts an float to a int (rounding down)"
+            "floor converts a float to an int (rounding down)"
             (assertEqual xNum (floor -3.6))
         , test
-            "ceiling converts an float to a int (rounding up)"
+            "ceiling converts a float to an int (rounding up)"
             (assertEqual xNum (ceiling 3.6))
         , test
-            "ceiling converts an float to a int (rounding up)"
+            "ceiling converts a float to an int (rounding up)"
             (assertEqual xNum (ceiling -3.6))
         , test
-            "round converts an float to a int (rounding to the closest int)"
+            "round converts a float to an int (rounding to the closest int)"
             (assertEqual xNum (round 3.6))
         , test
-            "round converts an float to a int (rounding to the closest int)"
+            "round converts a float to an int (rounding to the closest int)"
             (assertEqual xNum (round -3.6))
         , test
-            "truncate converts an float to a int (rounding towards 0)"
+            "truncate converts a float to an int (rounding towards 0)"
             (assertEqual xNum (truncate 3.6))
         , test
-            "truncate converts an float to a int (rounding towards 0)"
+            "truncate converts a float to an int (rounding towards 0)"
             (assertEqual xNum (truncate -3.6))
         ]
