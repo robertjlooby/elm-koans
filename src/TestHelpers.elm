@@ -5,60 +5,60 @@ import Set
 
 
 xBool =
-    False
+  False
 
 
 xString =
-    "-"
+  "-"
 
 
 xChar =
-    '-'
+  '-'
 
 
 xNum =
-    -1
+  -1
 
 
 xList =
-    []
+  []
 
 
 xMaybe =
-    Just 0
+  Just 0
 
 
 xResult =
-    Ok 0
+  Ok 0
 
 
 xTime =
-    0
+  0
 
 
 xMonth =
-    Date.Apr
+  Date.Apr
 
 
 xDay =
-    Date.Mon
+  Date.Mon
 
 
 xSet =
-    Set.singleton 1
+  Set.singleton 1
 
 
 xRecord =
-    { x = 0, y = 0, z = 0 }
+  { x = 0, y = 0, z = 0 }
 
 
 xTuple =
-    ( 0, 0 )
+  ( 0, 0 )
 
 
 xTuple2 =
-    ( 100, "" )
+  ( 100, "" )
 
 
 xTuple3 =
-    ( 1, "hello", [ 1, 2, 3 ] )
+  ( 1, "hello", [ 1, 2, 3 ] )
