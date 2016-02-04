@@ -12,7 +12,7 @@ testSuite =
         (assert (1 == xNum))
     , test
         "/= tests for inequality"
-        (assert (1 /= 1))
+        (assert (-1 /= xNum))
     , test
         "< tests for less than"
         (assert (1 < xNum))
