@@ -27,10 +27,20 @@ testSuite =
         (assertEqual 42 xNum)
     , test
         "number literals can be integers"
-        (assertEqual 42 42)
+        <| let
+            num : Int
+            num =
+              42
+           in
+            (assertEqual num xNum)
     , test
         "number literals can be floats"
-        (assertEqual 42 42.0)
+        <| let
+            num : Float
+            num =
+              42.0
+           in
+            (assertEqual num xNum)
     , test
         "lists are denoted by brackets"
         (assertEqual [ 1, 2, 3 ] xList)
