@@ -36,17 +36,17 @@ testSuite =
         (assertEqual 2 (5 `rem` xNum))
     , test
         "% performs modular arithmetic (which is different)"
-        (assertEqual xNum (-1 % 5))
+        (assertEqual (-1 % 5) xNum)
     , test
         "logBase returns the log of the value in the given base"
-        (assertEqual xNum (logBase 2 8))
+        (assertEqual (logBase 2 8) xNum)
     , test
         "clamp returns the value if it is between the given min and max"
-        (assertEqual xNum (clamp 1 10 5))
+        (assertEqual (clamp 1 10 5) xNum)
     , test
         "clamp returns the min value if the value is below the minimum"
-        (assertEqual xNum (clamp 1 10 -5))
+        (assertEqual (clamp 1 10 -5) xNum)
     , test
         "clamp returns the max value if the value is above the maximum"
-        (assertEqual xNum (clamp 1 10 50))
+        (assertEqual (clamp 1 10 50) xNum)
     ]

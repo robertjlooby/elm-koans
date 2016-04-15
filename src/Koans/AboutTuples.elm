@@ -9,22 +9,22 @@ testSuite =
     "About Tuples"
     [ test
         "tuples are like lists of fixed length"
-        (assertEqual xTuple ( 1, 2 ))
+        (assertEqual ( 1, 2 ) xTuple)
     , test
         "tuples may also be of mixed types"
-        (assertEqual xTuple2 ( 1, "hey" ))
+        (assertEqual ( 1, "hey" ) xTuple2)
     , test
         "there is a special comma syntax for creating tuples"
-        (assertEqual xTuple2 ((,) 1 "hey"))
+        (assertEqual ((,) 1 "hey") xTuple2)
     , test
         "you use as many commas as there would be in the tuple"
-        (assertEqual xTuple3 ((,,) 1 "hey" []))
+        (assertEqual ((,,) 1 "hey" []) xTuple3)
     , test
         "fst gets the first element of a 2-tuple"
-        (assertEqual xNum (fst xTuple2))
+        (assertEqual (fst xTuple2) xNum)
     , test
         "snd gets the second element of a 2-tuple"
-        (assertEqual xString (snd xTuple2))
+        (assertEqual (snd xTuple2) xString)
     , test
         "case statements may be used to destructure a tuple"
         (case ( 1, 2 ) of

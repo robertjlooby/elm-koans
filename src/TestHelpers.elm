@@ -28,6 +28,10 @@ xMaybe =
   Just 0
 
 
+xOrd =
+  EQ
+
+
 xResult =
   Ok 0
 

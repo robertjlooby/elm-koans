@@ -21,13 +21,13 @@ testSuite =
         (assert (1 <= xNum))
     , test
         "> tests for greater than"
-        (assert (xNum > 1))
+        (assert (1 > xNum))
     , test
         ">= tests for greater than or equal to"
-        (assert (xNum >= 1))
+        (assert (1 >= xNum))
     , test
         "Floats are comparable"
-        (assert (xNum >= 1.5))
+        (assert (1.5 >= xNum))
     , test
         "Strings are comparable"
         (assert ("A string" == xString))
@@ -36,14 +36,15 @@ testSuite =
         (assert ('a' == xChar))
     , test
         "max returns the maximum of two comparables"
-        (assertEqual xNum (max 1 2))
+        (assertEqual (max 1 2) xNum)
     , test
         "min returns the minimum of two comparables"
-        (assertEqual xNum (min 1 2))
+        (assertEqual (min 1 2) xNum)
     , test
         "compare returns an Order"
-        (assertEqual EQ (compare 1 2))
+        -- valid Order values are LT, EQ, and GT
+        (assertEqual (compare 1 2) xOrd)
     , test
-        "functions can be made infix with ``"
-        (assertEqual EQ (2 `compare` 1))
+        "functions can be made infix with `backticks`"
+        (assertEqual (2 `compare` 1) xOrd)
     ]

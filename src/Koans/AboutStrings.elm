@@ -10,16 +10,16 @@ testSuite =
     "About Strings"
     [ test
         "length returns the string length"
-        (assertEqual xNum (String.length "Hello"))
+        (assertEqual (String.length "Hello") xNum)
     , test
         "isEmpty tests for an empty string"
         (assert (String.isEmpty xString))
     , test
         "reverse returns the reverse of a string"
-        (assertEqual xString (String.reverse "Hello"))
+        (assertEqual (String.reverse "Hello") xString)
     , test
         "repeat returns the string repeated n times"
-        (assertEqual xString (String.repeat 2 "ya"))
+        (assertEqual (String.repeat 2 "ya") xString)
     , test
         "the ++ infix function appends two strings"
         (assertEqual ("Elm" ++ "Lang") xString)
@@ -58,6 +58,6 @@ testSuite =
         (assertEqual (String.contains "string" "I'm a string") xBool)
     , test
         "indexes gives the location of each occurance"
+        -- there are sooooo many string functions, just check them out
         (assertEqual (String.indexes "string" "I'm a string") xList)
-      -- there are sooooo many string functions, just check them out
     ]

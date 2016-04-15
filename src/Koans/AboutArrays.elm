@@ -10,42 +10,42 @@ testSuite =
     "About Arrays"
     [ test
         "arrays can be created from a list"
-        (assertEqual (fromList xList) (fromList [ 0, 1 ]))
+        (assertEqual (fromList [ 0, 1 ]) (fromList xList))
     , test
         "arrays can also be turned into lists"
-        (assertEqual xList (Array.toList <| fromList [ 0, 1 ]))
+        (assertEqual (Array.toList <| fromList [ 0, 1 ]) xList)
     , test
         "length gives the number of elements"
-        (assertEqual xNum (Array.length <| fromList [ 0, 1, 2 ]))
+        (assertEqual (Array.length <| fromList [ 0, 1, 2 ]) xNum)
     , test
         "values can be pushed on to an array"
-        (assertEqual (fromList xList) (Array.push 3 <| fromList [ 1, 2 ]))
+        (assertEqual (Array.push 3 <| fromList [ 1, 2 ]) (fromList xList))
     , test
         "or two arrays can become one"
-        (assertEqual (fromList xList) (Array.append (fromList [ 1, 2 ]) (fromList [ 3 ])))
+        (assertEqual (Array.append (fromList [ 1, 2 ]) (fromList [ 3 ])) (fromList xList))
     , test
         "it is easy to create an empty array"
-        (assertEqual (fromList xList) (Array.push 1 <| Array.empty))
+        (assertEqual (Array.push 1 <| Array.empty) (fromList xList))
     , test
         "or to create an array of all the same value"
-        (assertEqual (fromList xList) (Array.repeat 3 "a"))
+        (assertEqual (Array.repeat 3 "a") (fromList xList))
     , test
         "initialize creates an array based on the index"
-        (assertEqual (fromList xList) (Array.initialize 3 (\i -> i * 2)))
+        (assertEqual (Array.initialize 3 (\i -> i * 2)) (fromList xList))
     , test
         "you can test whether an array is empty"
-        (assertEqual xBool (Array.isEmpty Array.empty))
+        (assertEqual (Array.isEmpty Array.empty) xBool)
     , test
         "mapping is just like with lists"
         -- so is indexedMap, filter, foldl, foldr
-        (assertEqual (fromList xList) (Array.map (\i -> i * 3) <| fromList [ 0, 1, 2 ]))
+        (assertEqual (Array.map (\i -> i * 3) <| fromList [ 0, 1, 2 ]) (fromList xList))
     , test
         "unlike with lists, you can get the value at an index"
-        (assertEqual (Just xNum) (Array.get 1 <| fromList [ 0, 1, 2 ]))
+        (assertEqual (Array.get 1 <| fromList [ 0, 1, 2 ]) (Just xNum))
     , test
         "and set the value at an index"
-        (assertEqual (fromList xList) (Array.set 1 5 <| fromList [ 0, 1, 2 ]))
+        (assertEqual (Array.set 1 5 <| fromList [ 0, 1, 2 ]) (fromList xList))
     , test
         "or get a slice of the array"
-        (assertEqual (fromList xList) (Array.slice 1 4 <| fromList [ 0, 1, 2, 3, 4 ]))
+        (assertEqual (Array.slice 1 4 <| fromList [ 0, 1, 2, 3, 4 ]) (fromList xList))
     ]

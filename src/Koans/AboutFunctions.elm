@@ -39,7 +39,7 @@ testSuite =
     "About Functions"
     [ test
         "the identity function returns whatever it is passed"
-        (assertEqual xNum (identity 4))
+        (assertEqual (identity 4) xNum)
     , test
         "functions are defined as 'name args = implementation'"
         (assertEqual 5 (add1 xNum))
@@ -60,20 +60,20 @@ testSuite =
         (assertEqual 1 (subtractFrom4 xNum))
     , test
         "the always function returns its first argument, no matter what the second is"
-        (assertEqual xNum (always5 4))
+        (assertEqual (always5 4) xNum)
     , test
         "the flip function flips the order of the first two arguments of a function"
-        (assertEqual xNum (subtract4 9))
+        (assertEqual (subtract4 9) xNum)
     , test
         "f <| a applies the function f to the arg a"
-        (assertEqual xNum (subtract4 <| add 1 9))
+        (assertEqual (subtract4 <| add 1 9) xNum)
     , test
         "a |> f applies the function f to the arg a"
-        (assertEqual xNum (add 1 9 |> subtract4))
+        (assertEqual (add 1 9 |> subtract4) xNum)
     , test
         "g << f composes function g with function f"
-        (assertEqual xNum ((multiplyBy2 << subtract4) 9))
+        (assertEqual ((multiplyBy2 << subtract4) 9) xNum)
     , test
         "f >> g composes function g with function f"
-        (assertEqual xNum ((subtract4 >> multiplyBy2) 9))
+        (assertEqual ((subtract4 >> multiplyBy2) 9) xNum)
     ]

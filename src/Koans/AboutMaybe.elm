@@ -10,26 +10,26 @@ testSuite =
     "About Maybe"
     [ test
         "maybe represents a value that may be nothing"
-        (assertEqual xMaybe Nothing)
+        (assertEqual Nothing xMaybe)
     , test
         "or the value could be something"
-        (assertEqual xMaybe (Just 5))
+        (assertEqual (Just 5) xMaybe)
     , test
         "withDefault can be used to get the value from a maybe"
-        (assertEqual xNum (Maybe.withDefault 3 (Just 5)))
+        (assertEqual (Maybe.withDefault 3 (Just 5)) xNum)
     , test
         "but will give the default value if there is nothing"
-        (assertEqual xNum (Maybe.withDefault 3 Nothing))
+        (assertEqual (Maybe.withDefault 3 Nothing) xNum)
     , test
         "oneOf will get the first value from a list of maybes"
-        (assertEqual xMaybe (Maybe.oneOf [ Nothing, (Just 1), (Just 2) ]))
+        (assertEqual (Maybe.oneOf [ Nothing, (Just 1), (Just 2) ]) xMaybe)
     , test
         "but you could still wind up with nothing"
-        (assertEqual xMaybe (Maybe.oneOf [ Nothing, Nothing, Nothing ]))
+        (assertEqual (Maybe.oneOf [ Nothing, Nothing, Nothing ]) xMaybe)
     , test
         "map will transform the value in a maybe"
-        (assertEqual xMaybe (Maybe.map (\n -> n / 2) (Just 4)))
+        (assertEqual (Maybe.map (\n -> n / 2) (Just 4)) xMaybe)
     , test
         "but will not transform a nothing"
-        (assertEqual xMaybe (Maybe.map (\n -> n / 2) Nothing))
+        (assertEqual (Maybe.map (\n -> n / 2) Nothing) xMaybe)
     ]
