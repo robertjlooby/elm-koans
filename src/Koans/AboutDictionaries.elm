@@ -1,4 +1,4 @@
-module AboutDictionaries (..) where
+module AboutDictionaries exposing (..)
 
 import ElmTest exposing (..)
 import Dict

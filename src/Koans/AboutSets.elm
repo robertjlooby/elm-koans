@@ -1,4 +1,4 @@
-module AboutSets (..) where
+module AboutSets exposing (..)
 
 import ElmTest exposing (..)
 import Set

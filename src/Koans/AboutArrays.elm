@@ -1,4 +1,4 @@
-module AboutArrays (..) where
+module AboutArrays exposing (..)
 
 import ElmTest exposing (..)
 import Array exposing (fromList)

@@ -1,4 +1,4 @@
-module AboutRegexes (..) where
+module AboutRegexes exposing (..)
 
 import ElmTest exposing (..)
 import Regex

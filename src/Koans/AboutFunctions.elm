@@ -1,4 +1,4 @@
-module AboutFunctions (..) where
+module AboutFunctions exposing (..)
 
 import ElmTest exposing (..)
 import TestHelpers exposing (..)

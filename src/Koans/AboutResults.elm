@@ -1,4 +1,4 @@
-module AboutResults (..) where
+module AboutResults exposing (..)
 
 import ElmTest exposing (..)
 import Result

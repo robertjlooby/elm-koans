@@ -1,4 +1,4 @@
-module AboutTuples (..) where
+module AboutTuples exposing (..)
 
 import ElmTest exposing (..)
 import TestHelpers exposing (..)

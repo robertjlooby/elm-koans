@@ -1,4 +1,4 @@
-module AboutLiterals (..) where
+module AboutLiterals exposing (..)
 
 import ElmTest exposing (..)
 import TestHelpers exposing (..)
@@ -6,7 +6,7 @@ import TestHelpers exposing (..)
 
 -- Single line comments begin with "--"
 {- Multi line comments
-begin with "
+  begin with "{-" and end with "-}"
 -}
 
 

@@ -1,4 +1,4 @@
-module AboutDates (..) where
+module AboutDates exposing (..)
 
 import Date
 import ElmTest exposing (..)

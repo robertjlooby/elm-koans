@@ -1,4 +1,4 @@
-module AboutUnionTypes (..) where
+module AboutUnionTypes exposing (..)
 
 import ElmTest exposing (..)
 import TestHelpers exposing (..)

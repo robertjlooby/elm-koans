@@ -1,4 +1,4 @@
-module AboutAsserts (..) where
+module AboutAsserts exposing (..)
 
 import ElmTest exposing (..)
 import TestHelpers exposing (..)

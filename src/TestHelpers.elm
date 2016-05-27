@@ -1,4 +1,4 @@
-module TestHelpers (..) where
+module TestHelpers exposing (..)
 
 import Date
 import Set

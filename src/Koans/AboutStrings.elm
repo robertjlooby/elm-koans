@@ -1,4 +1,4 @@
-module AboutStrings (..) where
+module AboutStrings exposing (..)
 
 import ElmTest exposing (..)
 import String

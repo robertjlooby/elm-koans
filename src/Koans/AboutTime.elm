@@ -1,4 +1,4 @@
-module AboutTime (..) where
+module AboutTime exposing (..)
 
 import ElmTest exposing (..)
 import TestHelpers exposing (..)

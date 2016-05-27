@@ -1,4 +1,4 @@
-module AboutMaybe (..) where
+module AboutMaybe exposing (..)
 
 import ElmTest exposing (..)
 import Maybe

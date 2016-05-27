@@ -1,4 +1,4 @@
-module AboutNumberConversions (..) where
+module AboutNumberConversions exposing (..)
 
 import ElmTest exposing (..)
 import TestHelpers exposing (..)

@@ -1,4 +1,4 @@
-module Main (..) where
+module Main exposing (..)
 
 import AboutArrays
 import AboutAsserts
@@ -24,27 +24,26 @@ import ElmTest exposing (..)
 
 
 main =
-  elementRunner
-    <| suite
-        "The Elm Koans"
-        [ AboutAsserts.testSuite
-        , AboutLiterals.testSuite
-        , AboutComparisonOperators.testSuite
-        , AboutLogicalOperators.testSuite
-        , AboutMathematicalOperators.testSuite
-        , AboutNumberConversions.testSuite
-        , AboutFunctions.testSuite
-        , AboutMaybe.testSuite
-        , AboutLists.testSuite
-        , AboutArrays.testSuite
-        , AboutTuples.testSuite
-        , AboutDictionaries.testSuite
-        , AboutResults.testSuite
-        , AboutStrings.testSuite
-        , AboutRegexes.testSuite
-        , AboutTime.testSuite
-        , AboutDates.testSuite
-        , AboutSets.testSuite
-        , AboutRecords.testSuite
-        , AboutUnionTypes.testSuite
-        ]
+    runSuiteHtml
+        <| suite "The Elm Koans"
+            [ AboutAsserts.testSuite
+            , AboutLiterals.testSuite
+            , AboutComparisonOperators.testSuite
+            , AboutLogicalOperators.testSuite
+            , AboutMathematicalOperators.testSuite
+            , AboutNumberConversions.testSuite
+            , AboutFunctions.testSuite
+            , AboutMaybe.testSuite
+            , AboutLists.testSuite
+            , AboutArrays.testSuite
+            , AboutTuples.testSuite
+            , AboutDictionaries.testSuite
+            , AboutResults.testSuite
+            , AboutStrings.testSuite
+            , AboutRegexes.testSuite
+            , AboutTime.testSuite
+            , AboutDates.testSuite
+            , AboutSets.testSuite
+            , AboutRecords.testSuite
+            , AboutUnionTypes.testSuite
+            ]

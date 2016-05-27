@@ -1,4 +1,4 @@
-module AboutLists (..) where
+module AboutLists exposing (..)
 
 import ElmTest exposing (..)
 import List exposing ((::))

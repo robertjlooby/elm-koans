@@ -1,4 +1,4 @@
-module AboutComparisonOperators (..) where
+module AboutComparisonOperators exposing (..)
 
 import ElmTest exposing (..)
 import TestHelpers exposing (..)

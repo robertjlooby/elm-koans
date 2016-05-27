@@ -1,4 +1,4 @@
-module AboutLogicalOperators (..) where
+module AboutLogicalOperators exposing (..)
 
 import ElmTest exposing (..)
 import TestHelpers exposing (..)

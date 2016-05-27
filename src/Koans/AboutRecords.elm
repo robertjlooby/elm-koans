@@ -1,4 +1,4 @@
-module AboutRecords (..) where
+module AboutRecords exposing (..)
 
 import ElmTest exposing (..)
 import TestHelpers exposing (..)
