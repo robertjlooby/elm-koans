@@ -1,6 +1,7 @@
-module AboutLiterals exposing (..)
+module AboutLiterals exposing (testSuite)
 
-import ElmTest exposing (..)
+import Assert
+import Test exposing (describe, test)
 import TestHelpers exposing (..)
 
 
@@ -11,29 +12,29 @@ import TestHelpers exposing (..)
 
 
 testSuite =
-    suite "About Literals"
+    describe "About Literals"
         [ test "strings are enclosed in double quotes"
-            (assertEqual "A string" xString)
+            <| \() -> Assert.equal "A string" xString
         , test "characters are enclosed in single quotes"
-            (assertEqual 'A' xChar)
+            <| \() -> Assert.equal 'A' xChar
         , test "floats have a decimal"
-            (assertEqual 42.24 xNum)
+            <| \() -> Assert.equal 42.24 xNum
         , test "integers do not"
-            (assertEqual 42 xNum)
+            <| \() -> Assert.equal 42 xNum
         , test "number literals can be integers"
             <| let
                 num : Int
                 num =
                     42
                in
-                (assertEqual num xNum)
+                \() -> Assert.equal num xNum
         , test "number literals can be floats"
             <| let
                 num : Float
                 num =
                     42.0
                in
-                (assertEqual num xNum)
+                \() -> Assert.equal num xNum
         , test "lists are denoted by brackets"
-            (assertEqual [ 1, 2, 3 ] xList)
+            <| \() -> Assert.equal [ 1, 2, 3 ] xList
         ]

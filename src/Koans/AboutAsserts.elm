@@ -1,15 +1,16 @@
-module AboutAsserts exposing (..)
+module AboutAsserts exposing (testSuite)
 
-import ElmTest exposing (..)
+import Assert
+import Test exposing (describe, test)
 import TestHelpers exposing (..)
 
 
 testSuite =
-    suite "About Asserts"
+    describe "About Asserts"
         [ test "assert tests for a true value"
-            (assert xBool)
+            <| \() -> Assert.true "Should be True" xBool
         , test "assertEqual tests for equality"
-            (assertEqual True xBool)
+            <| \() -> Assert.equal True xBool
         , test "assertNotEqual tests for inequality"
-            (assertNotEqual False xBool)
+            <| \() -> Assert.notEqual False xBool
         ]

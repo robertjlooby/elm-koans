@@ -1,7 +1,8 @@
-module AboutDates exposing (..)
+module AboutDates exposing (testSuite)
 
+import Assert
 import Date
-import ElmTest exposing (..)
+import Test exposing (describe, test)
 import TestHelpers exposing (..)
 
 
@@ -31,21 +32,23 @@ getField fn date =
 
 
 testSuite =
-    suite "About Dates"
+    describe "About Dates"
         [ test "year gets the year"
-            (assertEqual (Date.year ourDate) xNum)
+            <| \() -> Assert.equal (Date.year ourDate) xNum
         , test "month gets the month"
             -- a type!
-            (assertEqual (Date.month ourDate) xMonth)
+            <|
+                \() -> Assert.equal (Date.month ourDate) xMonth
         , test "day gets the day"
-            (assertEqual (Date.day ourDate) xNum)
+            <| \() -> Assert.equal (Date.day ourDate) xNum
         , test "dayOfWeek gets the day of the week"
             -- another type
-            (assertEqual (Date.dayOfWeek ourDate) xDay)
+            <|
+                \() -> Assert.equal (Date.dayOfWeek ourDate) xDay
         , test "hour gets the hour"
-            (assertEqual (getField Date.hour parsedDate) xString)
+            <| \() -> Assert.equal (getField Date.hour parsedDate) xString
         , test "minute gets the minute"
-            (assertEqual (getField Date.minute parsedDate) xString)
+            <| \() -> Assert.equal (getField Date.minute parsedDate) xString
         , test "second gets the second"
-            (assertEqual (getField Date.second parsedDate) xString)
+            <| \() -> Assert.equal (getField Date.second parsedDate) xString
         ]

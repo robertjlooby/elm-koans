@@ -1,6 +1,7 @@
-module AboutUnionTypes exposing (..)
+module AboutUnionTypes exposing (testSuite)
 
-import ElmTest exposing (..)
+import Assert
+import Test exposing (describe, test)
 import TestHelpers exposing (..)
 
 
@@ -21,19 +22,18 @@ type DNA
 
 
 testSuite =
-    suite "About UnionTypes"
+    describe "About UnionTypes"
         [ test "simple types are similar to enums in other languages"
-            (assertEqual C xNucleotide)
+            <| \() -> Assert.equal C xNucleotide
         , test "more complex types can be built with a 'tag' and additional data"
-            (assertEqual (Base C) (Base xNucleotide))
+            <| \() -> Assert.equal (Base C) (Base xNucleotide)
         , test "all types in the union type are the same type"
-            (assertEqual (Base A) (Strand [ A, T, C, G ]))
+            <| \() -> Assert.equal (Base A) (Strand [ A, T, C, G ])
         , test "case statements may be used to extract the data from the type"
-            (case Base A of
+            <| case Base A of
                 Strand nucleotides ->
-                    (assertEqual nucleotides [ xNucleotide ])
+                    \() -> Assert.equal nucleotides [ xNucleotide ]
 
                 Base nucleotide ->
-                    (assertEqual nucleotide xNucleotide)
-            )
+                    \() -> Assert.equal nucleotide xNucleotide
         ]

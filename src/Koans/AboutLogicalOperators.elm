@@ -1,17 +1,18 @@
-module AboutLogicalOperators exposing (..)
+module AboutLogicalOperators exposing (testSuite)
 
-import ElmTest exposing (..)
+import Assert
+import Test exposing (describe, test)
 import TestHelpers exposing (..)
 
 
 testSuite =
-    suite "About Logical Operators"
+    describe "About Logical Operators"
         [ test "not negates a boolean"
-            (assertEqual False (not xBool))
+            <| \() -> Assert.equal False (not xBool)
         , test "&& is a logical AND"
-            (assert (True && xBool))
+            <| \() -> Assert.true "Should be True" (True && xBool)
         , test "|| is a logical OR"
-            (assert (False || xBool))
+            <| \() -> Assert.true "Should be True" (False || xBool)
         , test "xor is a logical XOR"
-            (assert (False `xor` xBool))
+            <| \() -> Assert.true "Should be True" (False `xor` xBool)
         ]

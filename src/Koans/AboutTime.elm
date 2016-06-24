@@ -1,22 +1,23 @@
-module AboutTime exposing (..)
+module AboutTime exposing (testSuite)
 
-import ElmTest exposing (..)
+import Assert
+import Test exposing (describe, test)
 import TestHelpers exposing (..)
 import Time
 
 
 testSuite =
-    suite "About Time"
+    describe "About Time"
         [ test "time is just a Float"
-            (assertEqual 123.45 xTime)
+            <| \() -> Assert.equal 123.45 xTime
         , test "a constant exists for hour"
-            (assertEqual (1 * Time.hour) xTime)
+            <| \() -> Assert.equal (1 * Time.hour) xTime
         , test "and minute"
-            (assertEqual (1 * Time.minute) xTime)
+            <| \() -> Assert.equal (1 * Time.minute) xTime
         , test "and second"
-            (assertEqual (1 * Time.second) xTime)
+            <| \() -> Assert.equal (1 * Time.second) xTime
         , test "and millisecond"
-            (assertEqual (1 * Time.millisecond) xTime)
+            <| \() -> Assert.equal (1 * Time.millisecond) xTime
         , test "helpers exist to convert back to Floats"
-            (assertEqual (Time.inSeconds 1000) xNum)
+            <| \() -> Assert.equal (Time.inSeconds 1000) xNum
         ]

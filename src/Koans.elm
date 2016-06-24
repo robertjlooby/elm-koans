@@ -1,4 +1,4 @@
-module Main exposing (..)
+module Main exposing (main)
 
 import AboutArrays
 import AboutAsserts
@@ -20,12 +20,13 @@ import AboutStrings
 import AboutTime
 import AboutTuples
 import AboutUnionTypes
-import ElmTest exposing (..)
+import Test exposing (describe)
+import Test.Runner.Html exposing (run)
 
 
 main =
-    runSuiteHtml
-        <| suite "The Elm Koans"
+    run
+        <| describe "The Elm Koans"
             [ AboutAsserts.testSuite
             , AboutLiterals.testSuite
             , AboutComparisonOperators.testSuite
