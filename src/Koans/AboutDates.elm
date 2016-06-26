@@ -1,6 +1,6 @@
 module AboutDates exposing (testSuite)
 
-import Assert
+import Expect
 import Date
 import Test exposing (describe, test)
 import TestHelpers exposing (..)
@@ -34,21 +34,21 @@ getField fn date =
 testSuite =
     describe "About Dates"
         [ test "year gets the year"
-            <| \() -> Assert.equal (Date.year ourDate) xNum
+            <| \() -> Expect.equal (Date.year ourDate) xNum
         , test "month gets the month"
             -- a type!
             <|
-                \() -> Assert.equal (Date.month ourDate) xMonth
+                \() -> Expect.equal (Date.month ourDate) xMonth
         , test "day gets the day"
-            <| \() -> Assert.equal (Date.day ourDate) xNum
+            <| \() -> Expect.equal (Date.day ourDate) xNum
         , test "dayOfWeek gets the day of the week"
             -- another type
             <|
-                \() -> Assert.equal (Date.dayOfWeek ourDate) xDay
+                \() -> Expect.equal (Date.dayOfWeek ourDate) xDay
         , test "hour gets the hour"
-            <| \() -> Assert.equal (getField Date.hour parsedDate) xString
+            <| \() -> Expect.equal (getField Date.hour parsedDate) xString
         , test "minute gets the minute"
-            <| \() -> Assert.equal (getField Date.minute parsedDate) xString
+            <| \() -> Expect.equal (getField Date.minute parsedDate) xString
         , test "second gets the second"
-            <| \() -> Assert.equal (getField Date.second parsedDate) xString
+            <| \() -> Expect.equal (getField Date.second parsedDate) xString
         ]

@@ -1,13 +1,13 @@
 module AboutSets exposing (testSuite)
 
-import Assert
+import Expect
 import Set
 import Test exposing (describe, test)
 import TestHelpers exposing (..)
 
 
 assertEqualSets set1 set2 =
-    Assert.equal (Set.toList set1) (Set.toList set2)
+    Expect.equal (Set.toList set1) (Set.toList set2)
 
 
 oneTwoThree =
@@ -33,7 +33,7 @@ testSuite =
         , test "but only if it is there"
             <| \() -> assertEqualSets (Set.remove 4 oneTwoThree) xSet
         , test "member can check if an element is in a set"
-            <| \() -> Assert.equal (Set.member 2 oneTwoThree) xBool
+            <| \() -> Expect.equal (Set.member 2 oneTwoThree) xBool
         , test "union will add two sets"
             <| \() -> assertEqualSets (Set.union oneTwoThree (Set.fromList [ 3, 4 ])) xSet
         , test "intersect will get the intersection"

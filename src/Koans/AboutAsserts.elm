@@ -1,16 +1,16 @@
 module AboutAsserts exposing (testSuite)
 
-import Assert
+import Expect
 import Test exposing (describe, test)
 import TestHelpers exposing (..)
 
 
 testSuite =
-    describe "About Asserts"
+    describe "About Expects"
         [ test "assert tests for a true value"
-            <| \() -> Assert.true "Should be True" xBool
+            <| \() -> Expect.true "Should be True" xBool
         , test "assertEqual tests for equality"
-            <| \() -> Assert.equal True xBool
+            <| \() -> Expect.equal True xBool
         , test "assertNotEqual tests for inequality"
-            <| \() -> Assert.notEqual False xBool
+            <| \() -> Expect.notEqual False xBool
         ]
