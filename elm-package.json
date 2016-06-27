@@ -11,9 +11,9 @@
     "dependencies": {
         "elm-lang/core": "4.0.0 <= v < 5.0.0",
         "elm-lang/html": "1.0.0 <= v < 2.0.0",
-        "project-fuzzball/node": "1.0.2 <= v < 2.0.0",
-        "project-fuzzball/test": "2.0.1 <= v < 3.0.0",
-        "project-fuzzball/test-runner": "1.0.1 <= v < 2.0.0"
+        "project-fuzzball/node": "1.0.3 <= v < 2.0.0",
+        "project-fuzzball/test": "3.0.1 <= v < 4.0.0",
+        "project-fuzzball/test-runner": "1.0.3 <= v < 2.0.0"
     },
     "elm-version": "0.17.0 <= v < 0.18.0"
 }
