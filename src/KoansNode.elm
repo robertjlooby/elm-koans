@@ -1,4 +1,4 @@
-module Main exposing (main)
+port module Main exposing (main)
 
 import AboutArrays
 import AboutAsserts
@@ -20,12 +20,13 @@ import AboutStrings
 import AboutTime
 import AboutTuples
 import AboutUnionTypes
+import Json.Encode exposing (Value)
 import Test exposing (describe)
-import Test.Runner.Html exposing (run)
+import Test.Runner.Node exposing (run)
 
 
 main =
-    run
+    run emit
         <| describe "The Elm Koans"
             [ AboutAsserts.testSuite
             , AboutLiterals.testSuite
@@ -48,3 +49,6 @@ main =
             , AboutRecords.testSuite
             , AboutUnionTypes.testSuite
             ]
+
+
+port emit : ( String, Value ) -> Cmd msg

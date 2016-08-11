@@ -1,7 +1,8 @@
-module AboutDates exposing (..)
+module AboutDates exposing (testSuite)
 
+import Expect
 import Date
-import ElmTest exposing (..)
+import Test exposing (describe, test)
 import TestHelpers exposing (..)
 
 
@@ -9,7 +10,7 @@ import TestHelpers exposing (..)
 
 
 ourDate =
-  Date.fromTime 0
+    Date.fromTime 0
 
 
 
@@ -17,43 +18,37 @@ ourDate =
 
 
 parsedDate =
-  Date.fromString "1/1/2000 11:30:45 AM"
+    Date.fromString "1/1/2000 11:30:45 AM"
 
 
 getField : (Date.Date -> a) -> Result String Date.Date -> String
 getField fn date =
-  case date of
-    Ok value ->
-      toString (fn value)
+    case date of
+        Ok value ->
+            toString (fn value)
 
-    Err msg ->
-      msg
+        Err msg ->
+            msg
 
 
 testSuite =
-  suite
-    "About Dates"
-    [ test
-        "year gets the year"
-        (assertEqual (Date.year ourDate) xNum)
-    , test
-        "month gets the month"
-        -- a type!
-        (assertEqual (Date.month ourDate) xMonth)
-    , test
-        "day gets the day"
-        (assertEqual (Date.day ourDate) xNum)
-    , test
-        "dayOfWeek gets the day of the week"
-        -- another type
-        (assertEqual (Date.dayOfWeek ourDate) xDay)
-    , test
-        "hour gets the hour"
-        (assertEqual (getField Date.hour parsedDate) xString)
-    , test
-        "minute gets the minute"
-        (assertEqual (getField Date.minute parsedDate) xString)
-    , test
-        "second gets the second"
-        (assertEqual (getField Date.second parsedDate) xString)
-    ]
+    describe "About Dates"
+        [ test "year gets the year"
+            <| \() -> Expect.equal (Date.year ourDate) xNum
+        , test "month gets the month"
+            -- a type!
+            <|
+                \() -> Expect.equal (Date.month ourDate) xMonth
+        , test "day gets the day"
+            <| \() -> Expect.equal (Date.day ourDate) xNum
+        , test "dayOfWeek gets the day of the week"
+            -- another type
+            <|
+                \() -> Expect.equal (Date.dayOfWeek ourDate) xDay
+        , test "hour gets the hour"
+            <| \() -> Expect.equal (getField Date.hour parsedDate) xString
+        , test "minute gets the minute"
+            <| \() -> Expect.equal (getField Date.minute parsedDate) xString
+        , test "second gets the second"
+            <| \() -> Expect.equal (getField Date.second parsedDate) xString
+        ]
