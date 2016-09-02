@@ -9,15 +9,27 @@ import Time
 testSuite =
     describe "About Time"
         [ test "time is just a Float" <|
-            \() -> Expect.equal 123.45 xTime
+            \() ->
+                xTime
+                    |> Expect.equal 123.45
         , test "a constant exists for hour" <|
-            \() -> Expect.equal (1 * Time.hour) xTime
+            \() ->
+                xTime
+                    |> Expect.equal (1 * Time.hour)
         , test "and minute" <|
-            \() -> Expect.equal (1 * Time.minute) xTime
+            \() ->
+                xTime
+                    |> Expect.equal (1 * Time.minute)
         , test "and second" <|
-            \() -> Expect.equal (1 * Time.second) xTime
+            \() ->
+                xTime
+                    |> Expect.equal (1 * Time.second)
         , test "and millisecond" <|
-            \() -> Expect.equal (1 * Time.millisecond) xTime
+            \() ->
+                xTime
+                    |> Expect.equal (1 * Time.millisecond)
         , test "helpers exist to convert back to Floats" <|
-            \() -> Expect.equal (Time.inSeconds 1000) xNum
+            \() ->
+                xNum
+                    |> Expect.equal (Time.inSeconds 1000)
         ]

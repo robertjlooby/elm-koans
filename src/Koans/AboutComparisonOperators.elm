@@ -8,31 +8,56 @@ import TestHelpers exposing (..)
 testSuite =
     describe "About Comparison Operators"
         [ test "== tests for equality" <|
-            \() -> Expect.true "Should be True" (1 == xNum)
+            \() ->
+                (1 == xNum)
+                    |> Expect.true "Should be True"
         , test "/= tests for inequality" <|
-            \() -> Expect.true "Should be True" (-1 /= xNum)
+            \() ->
+                (-1 /= xNum)
+                    |> Expect.true "Should be True"
         , test "< tests for less than" <|
-            \() -> Expect.true "Should be True" (1 < xNum)
+            \() ->
+                (1 < xNum)
+                    |> Expect.true "Should be True"
         , test "<= tests for less than or equal to" <|
-            \() -> Expect.true "Should be True" (1 <= xNum)
+            \() ->
+                (1 <= xNum)
+                    |> Expect.true "Should be True"
         , test "> tests for greater than" <|
-            \() -> Expect.true "Should be True" (1 > xNum)
+            \() ->
+                (1 > xNum)
+                    |> Expect.true "Should be True"
         , test ">= tests for greater than or equal to" <|
-            \() -> Expect.true "Should be True" (1 >= xNum)
+            \() ->
+                (1 >= xNum)
+                    |> Expect.true "Should be True"
         , test "Floats are comparable" <|
-            \() -> Expect.true "Should be True" (1.5 >= xNum)
+            \() ->
+                (1.5 >= xNum)
+                    |> Expect.true "Should be True"
         , test "Strings are comparable" <|
-            \() -> Expect.true "Should be True" ("A string" == xString)
+            \() ->
+                ("A string" == xString)
+                    |> Expect.true "Should be True"
         , test "Chars are comparable" <|
-            \() -> Expect.true "Should be True" ('a' == xChar)
+            \() ->
+                ('a' == xChar)
+                    |> Expect.true "Should be True"
         , test "max returns the maximum of two comparables" <|
-            \() -> Expect.equal (max 1 2) xNum
+            \() ->
+                xNum
+                    |> Expect.equal (max 1 2)
         , test "min returns the minimum of two comparables" <|
-            \() -> Expect.equal (min 1 2) xNum
-        , test "compare returns an Order"
-          -- valid Order values are LT, EQ, and GT
-          <|
-            \() -> Expect.equal (compare 1 2) xOrd
+            \() ->
+                xNum
+                    |> Expect.equal (min 1 2)
+        , test "compare returns an Order" <|
+            -- valid Order values are LT, EQ, and GT
+            \() ->
+                xOrd
+                    |> Expect.equal (compare 1 2)
         , test "functions can be made infix with `backticks`" <|
-            \() -> Expect.equal (2 `compare` 1) xOrd
+            \() ->
+                xOrd
+                    |> Expect.equal (2 `compare` 1)
         ]

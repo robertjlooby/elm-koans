@@ -24,16 +24,26 @@ type DNA
 testSuite =
     describe "About UnionTypes"
         [ test "simple types are similar to enums in other languages" <|
-            \() -> Expect.equal C xNucleotide
+            \() ->
+                xNucleotide
+                    |> Expect.equal C
         , test "more complex types can be built with a 'tag' and additional data" <|
-            \() -> Expect.equal (Base C) (Base xNucleotide)
+            \() ->
+                (Base xNucleotide)
+                    |> Expect.equal (Base C)
         , test "all types in the union type are the same type" <|
-            \() -> Expect.equal (Base A) (Strand [ A, T, C, G ])
+            \() ->
+                (Strand [ A, T, C, G ])
+                    |> Expect.equal (Base A)
         , test "case statements may be used to extract the data from the type" <|
             case Base A of
                 Strand nucleotides ->
-                    \() -> Expect.equal nucleotides [ xNucleotide ]
+                    \() ->
+                        [ xNucleotide ]
+                            |> Expect.equal nucleotides
 
                 Base nucleotide ->
-                    \() -> Expect.equal nucleotide xNucleotide
+                    \() ->
+                        xNucleotide
+                            |> Expect.equal nucleotide
         ]

@@ -8,27 +8,41 @@ import TestHelpers exposing (..)
 testSuite =
     describe "About Literals"
         [ test "strings are enclosed in double quotes" <|
-            \() -> Expect.equal "A string" xString
+            \() ->
+                xString
+                    |> Expect.equal "A string"
         , test "characters are enclosed in single quotes" <|
-            \() -> Expect.equal 'A' xChar
+            \() ->
+                xChar
+                    |> Expect.equal 'A'
         , test "floats have a decimal" <|
-            \() -> Expect.equal 42.24 xNum
+            \() ->
+                xNum
+                    |> Expect.equal 42.24
         , test "integers do not" <|
-            \() -> Expect.equal 42 xNum
+            \() ->
+                xNum
+                    |> Expect.equal 42
         , test "number literals can be integers" <|
             let
                 num : Int
                 num =
                     42
             in
-                \() -> Expect.equal num xNum
+                \() ->
+                    xNum
+                        |> Expect.equal num
         , test "number literals can be floats" <|
             let
                 num : Float
                 num =
                     42.0
             in
-                \() -> Expect.equal num xNum
+                \() ->
+                    xNum
+                        |> Expect.equal num
         , test "lists are denoted by brackets" <|
-            \() -> Expect.equal [ 1, 2, 3 ] xList
+            \() ->
+                xList
+                    |> Expect.equal [ 1, 2, 3 ]
         ]
