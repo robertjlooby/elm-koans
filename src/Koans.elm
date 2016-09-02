@@ -25,8 +25,8 @@ import Test.Runner.Html exposing (run)
 
 
 main =
-    run
-        <| describe "The Elm Koans"
+    run <|
+        describe "The Elm Koans"
             [ AboutAsserts.testSuite
             , AboutLiterals.testSuite
             , AboutComparisonOperators.testSuite

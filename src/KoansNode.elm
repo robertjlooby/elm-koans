@@ -26,8 +26,8 @@ import Test.Runner.Node exposing (run)
 
 
 main =
-    run emit
-        <| describe "The Elm Koans"
+    run emit <|
+        describe "The Elm Koans"
             [ AboutAsserts.testSuite
             , AboutLiterals.testSuite
             , AboutComparisonOperators.testSuite
