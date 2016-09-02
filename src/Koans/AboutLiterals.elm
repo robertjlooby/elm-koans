@@ -5,12 +5,6 @@ import Test exposing (describe, test)
 import TestHelpers exposing (..)
 
 
--- Single line comments begin with "--"
-{- Multi line comments
-   begin with "{-" and end with "-}"
--}
-
-
 testSuite =
     describe "About Literals"
         [ test "strings are enclosed in double quotes" <|
