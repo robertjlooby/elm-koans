@@ -1,7 +1,7 @@
 module Main exposing (main)
 
 import AboutArrays
-import AboutAsserts
+import AboutExpects
 import AboutComparisonOperators
 import AboutDates
 import AboutDictionaries
@@ -27,7 +27,7 @@ import Test.Runner.Html exposing (run)
 main =
     run <|
         describe "The Elm Koans"
-            [ AboutAsserts.testSuite
+            [ AboutExpects.testSuite
             , AboutLiterals.testSuite
             , AboutComparisonOperators.testSuite
             , AboutLogicalOperators.testSuite
