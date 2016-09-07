@@ -1,7 +1,7 @@
 port module Main exposing (main)
 
 import AboutArrays
-import AboutAsserts
+import AboutExpects
 import AboutComparisonOperators
 import AboutDates
 import AboutDictionaries
@@ -28,7 +28,7 @@ import Test.Runner.Node exposing (run)
 main =
     run emit <|
         describe "The Elm Koans"
-            [ AboutAsserts.testSuite
+            [ AboutExpects.testSuite
             , AboutLiterals.testSuite
             , AboutComparisonOperators.testSuite
             , AboutLogicalOperators.testSuite
