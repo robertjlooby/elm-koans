@@ -34,21 +34,33 @@ getField fn date =
 testSuite =
     describe "About Dates"
         [ test "year gets the year" <|
-            \() -> Expect.equal (Date.year ourDate) xNum
-        , test "month gets the month"
-          -- a type!
-          <|
-            \() -> Expect.equal (Date.month ourDate) xMonth
+            \() ->
+                xNum
+                    |> Expect.equal (Date.year ourDate)
+        , test "month gets the month" <|
+            -- a type!
+            \() ->
+                xMonth
+                    |> Expect.equal (Date.month ourDate)
         , test "day gets the day" <|
-            \() -> Expect.equal (Date.day ourDate) xNum
-        , test "dayOfWeek gets the day of the week"
-          -- another type
-          <|
-            \() -> Expect.equal (Date.dayOfWeek ourDate) xDay
+            \() ->
+                xNum
+                    |> Expect.equal (Date.day ourDate)
+        , test "dayOfWeek gets the day of the week" <|
+            -- another type
+            \() ->
+                xDay
+                    |> Expect.equal (Date.dayOfWeek ourDate)
         , test "hour gets the hour" <|
-            \() -> Expect.equal (getField Date.hour parsedDate) xString
+            \() ->
+                xString
+                    |> Expect.equal (getField Date.hour parsedDate)
         , test "minute gets the minute" <|
-            \() -> Expect.equal (getField Date.minute parsedDate) xString
+            \() ->
+                xString
+                    |> Expect.equal (getField Date.minute parsedDate)
         , test "second gets the second" <|
-            \() -> Expect.equal (getField Date.second parsedDate) xString
+            \() ->
+                xString
+                    |> Expect.equal (getField Date.second parsedDate)
         ]

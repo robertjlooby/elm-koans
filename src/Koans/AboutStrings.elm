@@ -9,39 +9,72 @@ import TestHelpers exposing (..)
 testSuite =
     describe "About Strings"
         [ test "length returns the string length" <|
-            \() -> Expect.equal (String.length "Hello") xNum
+            \() ->
+                xNum
+                    |> Expect.equal (String.length "Hello")
         , test "isEmpty tests for an empty string" <|
-            \() -> Expect.true "Should be True" (String.isEmpty xString)
+            \() ->
+                (String.isEmpty xString)
+                    |> Expect.true "Should be True"
         , test "reverse returns the reverse of a string" <|
-            \() -> Expect.equal (String.reverse "Hello") xString
+            \() ->
+                xString
+                    |> Expect.equal (String.reverse "Hello")
         , test "repeat returns the string repeated n times" <|
-            \() -> Expect.equal (String.repeat 2 "ya") xString
+            \() ->
+                xString
+                    |> Expect.equal (String.repeat 2 "ya")
         , test "the ++ infix function appends two strings" <|
-            \() -> Expect.equal ("Elm" ++ "Lang") xString
+            \() ->
+                xString
+                    |> Expect.equal ("Elm" ++ "Lang")
         , test "append does the same thing" <|
-            \() -> Expect.equal (String.append "Elm" "Lang") xString
+            \() ->
+                xString
+                    |> Expect.equal (String.append "Elm" "Lang")
         , test "concat appends a list of strings together" <|
-            \() -> Expect.equal (String.concat [ "Elm", "Lang", "Yay!" ]) xString
+            \() ->
+                xString
+                    |> Expect.equal (String.concat [ "Elm", "Lang", "Yay!" ])
         , test "join is like concat with a separator" <|
-            \() -> Expect.equal (String.join "," [ "I'm", "a", "csv" ]) xString
+            \() ->
+                xString
+                    |> Expect.equal (String.join "," [ "I'm", "a", "csv" ])
         , test "split does the opposite" <|
-            \() -> Expect.equal (String.split "," "I'm,a,csv") xList
+            \() ->
+                xList
+                    |> Expect.equal (String.split "," "I'm,a,csv")
         , test "slice gets a substring" <|
-            \() -> Expect.equal (String.slice 4 12 "I'm a string") xString
+            \() ->
+                xString
+                    |> Expect.equal (String.slice 4 12 "I'm a string")
         , test "negative indices start from the end" <|
-            \() -> Expect.equal (String.slice -8 -1 "I'm a string") xString
+            \() ->
+                xString
+                    |> Expect.equal (String.slice -8 -1 "I'm a string")
         , test "left takes the first n characters of a string" <|
-            \() -> Expect.equal (String.left 3 "I'm a string") xString
+            \() ->
+                xString
+                    |> Expect.equal (String.left 3 "I'm a string")
         , test "right takes the last n characters of a string" <|
-            \() -> Expect.equal (String.right 3 "I'm a string") xString
+            \() ->
+                xString
+                    |> Expect.equal (String.right 3 "I'm a string")
         , test "dropLeft drops the first n characters of a string" <|
-            \() -> Expect.equal (String.dropLeft 3 "I'm a string") xString
+            \() ->
+                xString
+                    |> Expect.equal (String.dropLeft 3 "I'm a string")
         , test "dropRight drops the last n characters of a string" <|
-            \() -> Expect.equal (String.dropRight 3 "I'm a string") xString
+            \() ->
+                xString
+                    |> Expect.equal (String.dropRight 3 "I'm a string")
         , test "contains looks for a substring" <|
-            \() -> Expect.equal (String.contains "string" "I'm a string") xBool
-        , test "indexes gives the location of each occurance"
-          -- there are sooooo many string functions, just check them out
-          <|
-            \() -> Expect.equal (String.indexes "string" "I'm a string") xList
+            \() ->
+                xBool
+                    |> Expect.equal (String.contains "string" "I'm a string")
+        , test "indexes gives the location of each occurance" <|
+            -- there are sooooo many string functions, just check them out
+            \() ->
+                xList
+                    |> Expect.equal (String.indexes "string" "I'm a string")
         ]

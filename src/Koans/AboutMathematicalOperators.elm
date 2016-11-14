@@ -8,31 +8,59 @@ import TestHelpers exposing (..)
 testSuite =
     describe "About Mathematical Operators"
         [ test "negate gives the negative of a number" <|
-            \() -> Expect.equal -3 (negate xNum)
+            \() ->
+                (negate xNum)
+                    |> Expect.equal -3
         , test "abs gives the absolute value of a number" <|
-            \() -> Expect.equal 3 (abs xNum)
+            \() ->
+                (abs xNum)
+                    |> Expect.equal 3
         , test "sqrt gives the square root of a Float" <|
-            \() -> Expect.equal 3.0 (sqrt xNum)
+            \() ->
+                (sqrt xNum)
+                    |> Expect.equal 3.0
         , test "+ adds numbers" <|
-            \() -> Expect.equal 3 (1 + xNum)
+            \() ->
+                (1 + xNum)
+                    |> Expect.equal 3
         , test "- subtracts numbers" <|
-            \() -> Expect.equal 3 (7 - xNum)
+            \() ->
+                (7 - xNum)
+                    |> Expect.equal 3
         , test "* multiplies numbers" <|
-            \() -> Expect.equal 6 (4 * xNum)
+            \() ->
+                (4 * xNum)
+                    |> Expect.equal 6
         , test "/ divides Floats" <|
-            \() -> Expect.equal 2.5 (5 / xNum)
+            \() ->
+                (5 / xNum)
+                    |> Expect.equal 2.5
         , test "// divides Ints" <|
-            \() -> Expect.equal 2 (5 // xNum)
+            \() ->
+                (5 // xNum)
+                    |> Expect.equal 2
         , test "rem gives the remainder after division" <|
-            \() -> Expect.equal 2 (5 `rem` xNum)
+            \() ->
+                (5 `rem` xNum)
+                    |> Expect.equal 2
         , test "% performs modular arithmetic (which is different)" <|
-            \() -> Expect.equal (-1 % 5) xNum
+            \() ->
+                xNum
+                    |> Expect.equal (-1 % 5)
         , test "logBase returns the log of the value in the given base" <|
-            \() -> Expect.equal (logBase 2 8) xNum
+            \() ->
+                xNum
+                    |> Expect.equal (logBase 2 8)
         , test "clamp returns the value if it is between the given min and max" <|
-            \() -> Expect.equal (clamp 1 10 5) xNum
+            \() ->
+                xNum
+                    |> Expect.equal (clamp 1 10 5)
         , test "clamp returns the min value if the value is below the minimum" <|
-            \() -> Expect.equal (clamp 1 10 -5) xNum
+            \() ->
+                xNum
+                    |> Expect.equal (clamp 1 10 -5)
         , test "clamp returns the max value if the value is above the maximum" <|
-            \() -> Expect.equal (clamp 1 10 50) xNum
+            \() ->
+                xNum
+                    |> Expect.equal (clamp 1 10 50)
         ]
