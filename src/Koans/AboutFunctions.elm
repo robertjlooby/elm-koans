@@ -49,10 +49,6 @@ testSuite =
             \() ->
                 (add 3 xNum)
                     |> Expect.equal 5
-        , test "functions may be used as infix with backticks" <|
-            \() ->
-                (3 `add` xNum)
-                    |> Expect.equal 5
         , test "anonymous functions are defined with '\\args -> implementation'" <|
             \() ->
                 (subtract 8 xNum)

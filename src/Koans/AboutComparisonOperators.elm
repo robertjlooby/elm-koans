@@ -56,8 +56,4 @@ testSuite =
             \() ->
                 xOrd
                     |> Expect.equal (compare 1 2)
-        , test "functions can be made infix with `backticks`" <|
-            \() ->
-                xOrd
-                    |> Expect.equal (2 `compare` 1)
         ]

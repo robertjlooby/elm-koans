@@ -3,6 +3,7 @@ module AboutTuples exposing (testSuite)
 import Expect
 import Test exposing (describe, test)
 import TestHelpers exposing (..)
+import Tuple
 
 
 testSuite =
@@ -23,14 +24,14 @@ testSuite =
             \() ->
                 xTuple3
                     |> Expect.equal ((,,) 1 "hey" [])
-        , test "fst gets the first element of a 2-tuple" <|
+        , test "first gets the first element of a 2-tuple" <|
             \() ->
                 xNum
-                    |> Expect.equal (fst xTuple2)
-        , test "snd gets the second element of a 2-tuple" <|
+                    |> Expect.equal (Tuple.first xTuple2)
+        , test "second gets the second element of a 2-tuple" <|
             \() ->
                 xString
-                    |> Expect.equal (snd xTuple2)
+                    |> Expect.equal (Tuple.second xTuple2)
         , test "case statements may be used to destructure a tuple" <|
             \() ->
                 case ( 1, 2 ) of

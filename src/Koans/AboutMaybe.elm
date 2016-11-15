@@ -23,14 +23,6 @@ testSuite =
             \() ->
                 xNum
                     |> Expect.equal (Maybe.withDefault 3 Nothing)
-        , test "oneOf will get the first value from a list of maybes" <|
-            \() ->
-                xMaybe
-                    |> Expect.equal (Maybe.oneOf [ Nothing, (Just 1), (Just 2) ])
-        , test "but you could still wind up with nothing" <|
-            \() ->
-                xMaybe
-                    |> Expect.equal (Maybe.oneOf [ Nothing, Nothing, Nothing ])
         , test "map will transform the value in a maybe" <|
             \() ->
                 xMaybe
