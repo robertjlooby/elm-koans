@@ -41,7 +41,7 @@ testSuite =
                     |> Expect.equal 2
         , test "rem gives the remainder after division" <|
             \() ->
-                (5 `rem` xNum)
+                (5 |> rem xNum)
                     |> Expect.equal 2
         , test "% performs modular arithmetic (which is different)" <|
             \() ->

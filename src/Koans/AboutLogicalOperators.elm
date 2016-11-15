@@ -21,6 +21,6 @@ testSuite =
                     |> Expect.true "Should be True"
         , test "xor is a logical XOR" <|
             \() ->
-                (False `xor` xBool)
+                (False |> xor xBool)
                     |> Expect.true "Should be True"
         ]
