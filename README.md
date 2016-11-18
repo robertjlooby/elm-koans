@@ -1,7 +1,7 @@
 #Elm Koans
 
 ##Instructions
-* Get [Elm](http://elm-lang.org/install) version 0.17
+* Get [Elm](http://elm-lang.org/install) version 0.18
 * Clone this repo
 * Install the dependencies
   * run `elm package install` from inside the cloned directory
