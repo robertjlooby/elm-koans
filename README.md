@@ -1,6 +1,6 @@
-#Elm Koans
+# Elm Koans
 
-##Instructions
+## Instructions
 * Get [Elm](http://elm-lang.org/install) version 0.18
 * Clone this repo
 * Install the dependencies
