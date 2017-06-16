@@ -1,4 +1,4 @@
-module AboutUnionTypes exposing (testSuite)
+module Koans20AboutUnionTypes exposing (testSuite)
 
 import Expect
 import Test exposing (describe, test)

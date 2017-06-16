@@ -1,4 +1,4 @@
-module AboutArrays exposing (testSuite)
+module Koans10AboutArrays exposing (testSuite)
 
 import Array exposing (fromList)
 import Expect

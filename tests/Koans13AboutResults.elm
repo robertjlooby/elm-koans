@@ -1,4 +1,4 @@
-module AboutResults exposing (testSuite)
+module Koans13AboutResults exposing (testSuite)
 
 import Expect
 import Test exposing (describe, test)

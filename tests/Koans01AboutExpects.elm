@@ -1,13 +1,11 @@
+module Koans01AboutExpects exposing (testSuite)
+
 -- Single line comments begin with "--"
 {- Multi line comments
    begin with "{-" and end with "-}"
 -}
 -- modules are named the same as their file name
 -- and list what members they publicly expose
-
-
-module AboutExpects exposing (testSuite)
-
 -- Other module names are referenced with `import`s
 
 import Expect

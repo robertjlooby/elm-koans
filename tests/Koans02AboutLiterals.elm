@@ -1,4 +1,4 @@
-module AboutLiterals exposing (testSuite)
+module Koans02AboutLiterals exposing (testSuite)
 
 import Expect
 import Test exposing (describe, test)

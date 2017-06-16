@@ -1,4 +1,4 @@
-module AboutMathematicalOperators exposing (testSuite)
+module Koans05AboutMathematicalOperators exposing (testSuite)
 
 import Expect
 import Test exposing (describe, test)

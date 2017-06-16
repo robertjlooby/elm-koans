@@ -1,4 +1,4 @@
-module AboutDictionaries exposing (testSuite)
+module Koans12AboutDictionaries exposing (testSuite)
 
 import Expect
 import Dict

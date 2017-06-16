@@ -1,4 +1,4 @@
-module AboutTuples exposing (testSuite)
+module Koans11AboutTuples exposing (testSuite)
 
 import Expect
 import Test exposing (describe, test)

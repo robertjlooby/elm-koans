@@ -1,4 +1,4 @@
-module AboutDates exposing (testSuite)
+module Koans17AboutDates exposing (testSuite)
 
 import Expect
 import Date

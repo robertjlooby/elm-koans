@@ -1,4 +1,4 @@
-module AboutRecords exposing (testSuite)
+module Koans19AboutRecords exposing (testSuite)
 
 import Expect
 import Test exposing (describe, test)

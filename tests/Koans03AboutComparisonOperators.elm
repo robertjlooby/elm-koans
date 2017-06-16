@@ -1,4 +1,4 @@
-module AboutComparisonOperators exposing (testSuite)
+module Koans03AboutComparisonOperators exposing (testSuite)
 
 import Expect
 import Test exposing (describe, test)

@@ -1,4 +1,4 @@
-module AboutSets exposing (testSuite)
+module Koans18AboutSets exposing (testSuite)
 
 import Expect
 import Set
