@@ -1,4 +1,4 @@
-module AboutNumberConversions exposing (testSuite)
+module Koans06AboutNumberConversions exposing (testSuite)
 
 import Expect
 import Test exposing (describe, test)

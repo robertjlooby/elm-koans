@@ -1,4 +1,4 @@
-module AboutMaybe exposing (testSuite)
+module Koans08AboutMaybe exposing (testSuite)
 
 import Expect
 import Test exposing (describe, test)

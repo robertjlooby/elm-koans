@@ -1,4 +1,4 @@
-module AboutLists exposing (testSuite)
+module Koans09AboutLists exposing (testSuite)
 
 import Expect
 import Test exposing (describe, test)

@@ -1,4 +1,4 @@
-module AboutFunctions exposing (testSuite)
+module Koans07AboutFunctions exposing (testSuite)
 
 import Expect
 import Test exposing (describe, test)

@@ -1,4 +1,4 @@
-module AboutStrings exposing (testSuite)
+module Koans14AboutStrings exposing (testSuite)
 
 import Expect
 import String

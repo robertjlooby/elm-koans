@@ -1,4 +1,4 @@
-module AboutTime exposing (testSuite)
+module Koans16AboutTime exposing (testSuite)
 
 import Expect
 import Test exposing (describe, test)

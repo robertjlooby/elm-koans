@@ -1,4 +1,4 @@
-module AboutLogicalOperators exposing (testSuite)
+module Koans04AboutLogicalOperators exposing (testSuite)
 
 import Expect
 import Test exposing (describe, test)

@@ -1,4 +1,4 @@
-module AboutRegexes exposing (testSuite)
+module Koans15AboutRegexes exposing (testSuite)
 
 import Expect
 import Regex
