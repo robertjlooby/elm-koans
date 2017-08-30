@@ -1,4 +1,4 @@
-module Utils.Suite exposing (koans, tests)
+module PathToEnlightenment exposing (koans, suite)
 
 import Koans01AboutExpects
 import Koans02AboutLiterals
@@ -50,6 +50,6 @@ koans =
         ]
 
 
-tests : ElmTest.Test
-tests =
+suite : ElmTest.Test
+suite =
     KoansTest.convert koans
