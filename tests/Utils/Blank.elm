@@ -1,9 +1,15 @@
 module Utils.Blank exposing (me____x, x____replace)
 
 
-type Blank
+type FILL_ME_IN
     = Blank
 
 
-( x____replace, me____x ) =
-    ( \_ -> Debug.crash "FILL IN THE BLANK", Blank )
+me____x : FILL_ME_IN
+me____x =
+    Blank
+
+
+x____replace : FILL_ME_IN -> a
+x____replace =
+    \_ -> Debug.crash "FILL IN THE BLANK"
