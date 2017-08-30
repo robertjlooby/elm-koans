@@ -1,27 +1,27 @@
 module Koans02AboutLiterals exposing (testSuite)
 
 import Expect
-import Test exposing (describe, test)
-import TestHelpers exposing (..)
+import Utils.Test exposing (describe, test)
+import Utils.Blank exposing (..)
 
 
 testSuite =
     describe "About Literals"
         [ test "strings are enclosed in double quotes" <|
             \() ->
-                xString
+                x____replace me____x
                     |> Expect.equal "A string"
         , test "characters are enclosed in single quotes" <|
             \() ->
-                xChar
+                x____replace me____x
                     |> Expect.equal 'A'
         , test "floats have a decimal" <|
             \() ->
-                xNum
+                x____replace me____x
                     |> Expect.equal 42.24
         , test "integers do not" <|
             \() ->
-                xNum
+                x____replace me____x
                     |> Expect.equal 42
         , test "number literals can be integers" <|
             let
@@ -30,7 +30,7 @@ testSuite =
                     42
             in
                 \() ->
-                    xNum
+                    x____replace me____x
                         |> Expect.equal num
         , test "number literals can be floats" <|
             let
@@ -39,10 +39,10 @@ testSuite =
                     42.0
             in
                 \() ->
-                    xNum
+                    x____replace me____x
                         |> Expect.equal num
         , test "lists are denoted by brackets" <|
             \() ->
-                xList
+                x____replace me____x
                     |> Expect.equal [ 1, 2, 3 ]
         ]

@@ -1,50 +1,95 @@
-module Main exposing (main)
+module Main exposing (..)
 
-import Koans01AboutExpects
-import Koans02AboutLiterals
-import Koans03AboutComparisonOperators
-import Koans04AboutLogicalOperators
-import Koans05AboutMathematicalOperators
-import Koans06AboutNumberConversions
-import Koans07AboutFunctions
-import Koans08AboutMaybe
-import Koans09AboutLists
-import Koans10AboutArrays
-import Koans11AboutTuples
-import Koans12AboutDictionaries
-import Koans13AboutResults
-import Koans14AboutStrings
-import Koans15AboutRegexes
-import Koans16AboutTime
-import Koans17AboutDates
-import Koans18AboutSets
-import Koans19AboutRecords
-import Koans20AboutUnionTypes
-import Test exposing (describe)
-import Test.Runner.Html exposing (run)
+import Expect
+import Html exposing (Html)
+import Process
+import Task
+import Test.Runner
+import Utils.Suite
+import Utils.Test as Test
 
 
+type alias Model =
+    { finished : List (List String)
+    , failure : Maybe { given : Maybe String, message : String }
+    , context : Test.Context
+    }
+
+
+type Msg
+    = Step
+    | Failure { given : Maybe String, message : String }
+
+
+init : ( Model, Cmd Msg )
+init =
+    ( Model [] Nothing (Test.flatten Utils.Suite.koans)
+    , Task.perform identity (Task.succeed Step)
+    )
+
+
+update : Msg -> Model -> ( Model, Cmd Msg )
+update msg model =
+    case ( msg, model.context ) of
+        ( Step, [] ) ->
+            ( model, Cmd.none )
+
+        ( Step, ( labels, run ) :: rest ) ->
+            let
+                newModel =
+                    { model
+                        | finished = labels :: model.finished
+                        , context = rest
+                    }
+            in
+            ( newModel, continue run )
+
+        ( Failure details, _ ) ->
+            ( { model | failure = Just details }, Cmd.none )
+
+
+continue : (() -> Expect.Expectation) -> Cmd Msg
+continue run =
+    let
+        toMsg =
+            Test.Runner.getFailure
+                >> Maybe.map Failure
+                >> Maybe.withDefault Step
+    in
+    Process.sleep 0
+        |> Task.perform (run >> toMsg)
+
+
+view : Model -> Html Msg
+view model =
+    case ( model.failure, model.finished ) of
+        ( Just { given, message }, _ ) ->
+            Html.text <|
+                "TEST FAILED\nGiven: "
+                    ++ Maybe.withDefault "nothing" given
+                    ++ "\n"
+                    ++ message
+
+        ( Nothing, current :: previous ) ->
+            Html.text <|
+                "RUNNING... "
+                    ++ String.join " in " current
+
+        ( Nothing, [] ) ->
+            Html.text
+                "WAITING..."
+
+
+subscriptions : Model -> Sub Msg
+subscriptions _ =
+    Sub.none
+
+
+main : Program Never Model Msg
 main =
-    run <|
-        describe "The Elm Koans"
-            [ Koans01AboutExpects.testSuite
-            , Koans02AboutLiterals.testSuite
-            , Koans03AboutComparisonOperators.testSuite
-            , Koans04AboutLogicalOperators.testSuite
-            , Koans05AboutMathematicalOperators.testSuite
-            , Koans06AboutNumberConversions.testSuite
-            , Koans07AboutFunctions.testSuite
-            , Koans08AboutMaybe.testSuite
-            , Koans09AboutLists.testSuite
-            , Koans10AboutArrays.testSuite
-            , Koans11AboutTuples.testSuite
-            , Koans12AboutDictionaries.testSuite
-            , Koans13AboutResults.testSuite
-            , Koans14AboutStrings.testSuite
-            , Koans15AboutRegexes.testSuite
-            , Koans16AboutTime.testSuite
-            , Koans17AboutDates.testSuite
-            , Koans18AboutSets.testSuite
-            , Koans19AboutRecords.testSuite
-            , Koans20AboutUnionTypes.testSuite
-            ]
+    Html.program
+        { init = init
+        , update = update
+        , view = view
+        , subscriptions = subscriptions
+        }
