@@ -57,7 +57,7 @@ flattenHelp labels test =
 
         Batch description (current :: next) ->
             flattenHelp (description :: labels) current
-                ++ flattenHelp (description :: labels) (Batch description next)
+                ++ flattenHelp labels (Batch description next)
 
         Single description thunk ->
             [ ( description :: labels, thunk >> ElmTestRunner.getFailure ) ]
