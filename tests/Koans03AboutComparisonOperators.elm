@@ -9,39 +9,39 @@ testSuite =
     describe "About Comparison Operators"
         [ test "== tests for equality" <|
             \() ->
-                (1 == x____replace me____x)
+                1 == x____replace me____x
                     |> Expect.true "Should be True"
         , test "/= tests for inequality" <|
             \() ->
-                (-1 /= x____replace me____x)
+                -1 /= x____replace me____x
                     |> Expect.true "Should be True"
         , test "< tests for less than" <|
             \() ->
-                (1 < x____replace me____x)
+                1 < x____replace me____x
                     |> Expect.true "Should be True"
         , test "<= tests for less than or equal to" <|
             \() ->
-                (1 <= x____replace me____x)
+                1 <= x____replace me____x
                     |> Expect.true "Should be True"
         , test "> tests for greater than" <|
             \() ->
-                (1 > x____replace me____x)
+                1 > x____replace me____x
                     |> Expect.true "Should be True"
         , test ">= tests for greater than or equal to" <|
             \() ->
-                (1 >= x____replace me____x)
+                1 >= x____replace me____x
                     |> Expect.true "Should be True"
         , test "Floats are comparable" <|
             \() ->
-                (1.5 >= x____replace me____x)
+                1.5 >= x____replace me____x
                     |> Expect.true "Should be True"
         , test "Strings are comparable" <|
             \() ->
-                ("A string" == x____replace me____x)
+                "A string" == x____replace me____x
                     |> Expect.true "Should be True"
         , test "Chars are comparable" <|
             \() ->
-                ('a' == x____replace me____x)
+                'a' == x____replace me____x
                     |> Expect.true "Should be True"
         , test "max returns the maximum of two comparables" <|
             \() ->
