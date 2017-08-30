@@ -9,38 +9,39 @@ testSuite =
     describe "About Mathematical Operators"
         [ test "negate gives the negative of a number" <|
             \() ->
-                (negate (x____replace me____x))
+                negate (x____replace me____x)
                     |> Expect.equal -3
         , test "abs gives the absolute value of a number" <|
             \() ->
-                (abs (x____replace me____x))
+                abs (x____replace me____x)
                     |> Expect.equal 3
         , test "sqrt gives the square root of a Float" <|
             \() ->
-                (sqrt (x____replace me____x))
+                sqrt (x____replace me____x)
                     |> Expect.equal 3.0
         , test "+ adds numbers" <|
             \() ->
-                (1 + x____replace me____x)
+                1 + x____replace me____x
                     |> Expect.equal 3
         , test "- subtracts numbers" <|
             \() ->
-                (7 - x____replace me____x)
+                7 - x____replace me____x
                     |> Expect.equal 3
         , test "* multiplies numbers" <|
             \() ->
-                (4 * x____replace me____x)
+                4 * x____replace me____x
                     |> Expect.equal 6
         , test "/ divides Floats" <|
             \() ->
-                (5 / x____replace me____x) |> Expect.equal 2.5
+                5 / x____replace me____x
+                    |> Expect.equal 2.5
         , test "// divides Ints" <|
             \() ->
-                (5 // x____replace me____x)
+                5 // x____replace me____x
                     |> Expect.equal 2
         , test "rem gives the remainder after division" <|
             \() ->
-                (5 |> rem (x____replace me____x))
+                5 |> rem (x____replace me____x)
                     |> Expect.equal 2
         , test "% performs modular arithmetic (which is different)" <|
             \() ->

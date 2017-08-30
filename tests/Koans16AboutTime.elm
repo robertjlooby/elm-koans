@@ -1,8 +1,8 @@
 module Koans16AboutTime exposing (testSuite)
 
 import Expect
-import Test exposing (describe, test)
-import TestHelpers exposing (..)
+import Utils.Test exposing (describe, test)
+import Utils.Blank exposing (..)
 import Time
 
 
@@ -10,26 +10,26 @@ testSuite =
     describe "About Time"
         [ test "time is just a Float" <|
             \() ->
-                xTime
+                x____replace me____x
                     |> Expect.equal 123.45
         , test "a constant exists for hour" <|
             \() ->
-                xTime
+                x____replace me____x
                     |> Expect.equal (1 * Time.hour)
         , test "and minute" <|
             \() ->
-                xTime
+                x____replace me____x
                     |> Expect.equal (1 * Time.minute)
         , test "and second" <|
             \() ->
-                xTime
+                x____replace me____x
                     |> Expect.equal (1 * Time.second)
         , test "and millisecond" <|
             \() ->
-                xTime
+                x____replace me____x
                     |> Expect.equal (1 * Time.millisecond)
         , test "helpers exist to convert back to Floats" <|
             \() ->
-                xNum
+                x____replace me____x
                     |> Expect.equal (Time.inSeconds 1000)
         ]

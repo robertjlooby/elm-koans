@@ -1,8 +1,8 @@
 module Koans20AboutUnionTypes exposing (testSuite)
 
 import Expect
-import Test exposing (describe, test)
-import TestHelpers exposing (..)
+import Utils.Test exposing (describe, test)
+import Utils.Blank exposing (..)
 
 
 type Nucleotide
@@ -10,10 +10,6 @@ type Nucleotide
     | C
     | G
     | T
-
-
-xNucleotide =
-    G
 
 
 type DNA
@@ -25,11 +21,11 @@ testSuite =
     describe "About UnionTypes"
         [ test "simple types are similar to enums in other languages" <|
             \() ->
-                xNucleotide
+                x____replace me____x
                     |> Expect.equal C
         , test "more complex types can be built with a 'tag' and additional data" <|
             \() ->
-                (Base xNucleotide)
+                Base (x____replace me____x)
                     |> Expect.equal (Base C)
         , test "all types in the union type are the same type" <|
             \() ->
@@ -39,11 +35,11 @@ testSuite =
             case Base A of
                 Strand nucleotides ->
                     \() ->
-                        [ xNucleotide ]
+                        [ x____replace me____x ]
                             |> Expect.equal nucleotides
 
                 Base nucleotide ->
                     \() ->
-                        xNucleotide
+                        x____replace me____x
                             |> Expect.equal nucleotide
         ]
