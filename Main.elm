@@ -55,12 +55,13 @@ stepCmd : (() -> Expectation) -> Cmd Msg
 stepCmd run =
     let
         toMsg =
-            ElmTestRunner.getFailure
+            run
+                >> ElmTestRunner.getFailure
                 >> Maybe.map Failure
                 >> Maybe.withDefault Step
     in
     Process.sleep 0
-        |> Task.perform (run >> toMsg)
+        |> Task.perform toMsg
 
 
 view : Model -> Html Msg
