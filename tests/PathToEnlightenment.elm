@@ -24,6 +24,18 @@ import Test as ElmTest
 import Utils.Test as KoansTest
 
 
+{-|
+
+
+# Welcome, to the Elm Koans!
+
+    If you're looking for the actual exercises, you'll want to start with
+
+        tests/Koans01AboutExpects.elm
+
+    If you're adding a new Koans, just add it to the list below!
+
+-}
 koans : KoansTest.Test
 koans =
     KoansTest.describe "The Elm Koans"
@@ -50,6 +62,11 @@ koans =
         ]
 
 
+{-|
+
+    Exposed for [elm-test](https://github.com/rtfeldman/node-test-runner)
+
+-}
 suite : ElmTest.Test
 suite =
     KoansTest.convert koans
