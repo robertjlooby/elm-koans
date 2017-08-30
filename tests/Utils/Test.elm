@@ -1,6 +1,7 @@
 module Utils.Test
     exposing
         ( Context
+        , Failure
         , Test
         , convert
         , describe
@@ -10,6 +11,7 @@ module Utils.Test
 
 import Expect
 import Test as ElmTest
+import Test.Runner as ElmTestRunner
 
 
 -- KOANS
@@ -35,7 +37,11 @@ test =
 
 
 type alias Context =
-    List ( List String, () -> Expect.Expectation )
+    List ( List String, () -> Maybe Failure )
+
+
+type alias Failure =
+    { given : Maybe String, message : String }
 
 
 flatten : Test -> Context
@@ -54,7 +60,7 @@ flattenHelp labels test =
                 ++ flattenHelp (tag :: labels) (Batch tag next)
 
         Single tag thunk ->
-            [ ( tag :: labels, thunk ) ]
+            [ ( tag :: labels, thunk >> ElmTestRunner.getFailure ) ]
 
 
 convert : Test -> ElmTest.Test

@@ -1,24 +1,22 @@
 module Main exposing (..)
 
-import Expect exposing (Expectation)
 import Html exposing (Html)
 import PathToEnlightenment
 import Process
 import Task
-import Test.Runner as ElmTestRunner
 import Utils.Test as KoansTest
 
 
 type alias Model =
     { finished : List (List String)
-    , failure : Maybe { given : Maybe String, message : String }
+    , failure : Maybe KoansTest.Failure
     , context : KoansTest.Context
     }
 
 
 type Msg
     = Step
-    | Failure { given : Maybe String, message : String }
+    | Failure KoansTest.Failure
 
 
 init : ( Model, Cmd Msg )
@@ -51,12 +49,11 @@ stepModel labels context model =
     { model | finished = labels :: model.finished, context = context }
 
 
-stepCmd : (() -> Expectation) -> Cmd Msg
+stepCmd : (() -> Maybe KoansTest.Failure) -> Cmd Msg
 stepCmd run =
     let
         toMsg =
             run
-                >> ElmTestRunner.getFailure
                 >> Maybe.map Failure
                 >> Maybe.withDefault Step
     in
