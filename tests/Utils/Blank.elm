@@ -16,5 +16,5 @@ me____x =
 
 
 x____replace : FILL_ME_IN -> a
-x____replace =
-    \_ -> Debug.crash "FILL IN THE BLANK"
+x____replace _ =
+    Debug.crash "FILL IN THE BLANK"

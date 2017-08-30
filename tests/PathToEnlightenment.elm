@@ -33,7 +33,7 @@ import Utils.Test as KoansTest
 
         tests/Koans01AboutExpects.elm
 
-    If you're adding a new Koans, just add it to the list below!
+    If you're adding a new koan, just add it to the list below!
 
 -}
 koans : KoansTest.Test

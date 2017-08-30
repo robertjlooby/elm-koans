@@ -55,19 +55,19 @@ flattenHelp labels test =
         Batch _ [] ->
             []
 
-        Batch tag (current :: next) ->
-            flattenHelp (tag :: labels) current
-                ++ flattenHelp (tag :: labels) (Batch tag next)
+        Batch description (current :: next) ->
+            flattenHelp (description :: labels) current
+                ++ flattenHelp (description :: labels) (Batch description next)
 
-        Single tag thunk ->
-            [ ( tag :: labels, thunk >> ElmTestRunner.getFailure ) ]
+        Single description thunk ->
+            [ ( description :: labels, thunk >> ElmTestRunner.getFailure ) ]
 
 
 convert : Test -> ElmTest.Test
 convert test =
     case test of
-        Batch tag children ->
-            ElmTest.describe tag (List.map convert children)
+        Batch description children ->
+            ElmTest.describe description (List.map convert children)
 
-        Single tag thunk ->
-            ElmTest.test tag thunk
+        Single description thunk ->
+            ElmTest.test description thunk
