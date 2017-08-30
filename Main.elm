@@ -23,9 +23,14 @@ type Msg
 
 init : ( Model, Cmd Msg )
 init =
-    ( Model [] Nothing (Test.flatten Utils.Suite.koans)
-    , Task.perform identity (Task.succeed Step)
-    )
+    let
+        testContext =
+            Test.flatten Utils.Suite.koans
+
+        step =
+            Task.succeed Step
+    in
+    ( Model [] Nothing testContext, Task.perform identity step )
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -35,21 +40,19 @@ update msg model =
             ( model, Cmd.none )
 
         ( Step, ( labels, run ) :: rest ) ->
-            let
-                newModel =
-                    { model
-                        | finished = labels :: model.finished
-                        , context = rest
-                    }
-            in
-            ( newModel, continue run )
+            ( stepModel labels rest model, stepCmd run )
 
-        ( Failure details, _ ) ->
-            ( { model | failure = Just details }, Cmd.none )
+        ( Failure error, _ ) ->
+            ( { model | failure = Just error }, Cmd.none )
 
 
-continue : (() -> Expect.Expectation) -> Cmd Msg
-continue run =
+stepModel : List String -> Test.Context -> Model -> Model
+stepModel labels context model =
+    { model | finished = labels :: model.finished, context = context }
+
+
+stepCmd : (() -> Expect.Expectation) -> Cmd Msg
+stepCmd run =
     let
         toMsg =
             Test.Runner.getFailure
@@ -63,12 +66,11 @@ continue run =
 view : Model -> Html Msg
 view model =
     case ( model.failure, model.finished ) of
-        ( Just { given, message }, _ ) ->
+        ( Just error, _ ) ->
             Html.text <|
-                "TEST FAILED\nGiven: "
-                    ++ Maybe.withDefault "nothing" given
-                    ++ "\n"
-                    ++ message
+                "TEST FAILED\n"
+                    ++ viewGiven error
+                    ++ error.message
 
         ( Nothing, current :: previous ) ->
             Html.text <|
@@ -78,6 +80,16 @@ view model =
         ( Nothing, [] ) ->
             Html.text
                 "WAITING..."
+
+
+viewGiven : { a | given : Maybe String } -> String
+viewGiven { given } =
+    case given of
+        Just x ->
+            "GIVEN: " ++ x ++ "\n"
+
+        Nothing ->
+            ""
 
 
 subscriptions : Model -> Sub Msg

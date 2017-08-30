@@ -21,11 +21,13 @@ import Koans04AboutLogicalOperators
 import Koans05AboutMathematicalOperators
 import Koans06AboutNumberConversions
 import Koans07AboutFunctions
-import Utils.Test
+import Test as ElmTest
+import Utils.Test as KoansTest
 
 
+koans : KoansTest.Test
 koans =
-    Utils.Test.describe "The Elm Koans"
+    KoansTest.describe "The Elm Koans"
         [ Koans01AboutExpects.testSuite
         , Koans02AboutLiterals.testSuite
         , Koans03AboutComparisonOperators.testSuite
@@ -50,5 +52,6 @@ koans =
         ]
 
 
+tests : ElmTest.Test
 tests =
-    Utils.Test.convert koans
+    KoansTest.convert koans

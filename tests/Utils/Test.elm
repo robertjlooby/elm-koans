@@ -9,7 +9,7 @@ module Utils.Test
         )
 
 import Expect
-import Test
+import Test as ElmTest
 
 
 -- KOANS
@@ -57,11 +57,11 @@ flattenHelp labels test =
             [ ( tag :: labels, thunk ) ]
 
 
-convert : Test -> Test.Test
+convert : Test -> ElmTest.Test
 convert test =
     case test of
         Batch tag children ->
-            Test.describe tag (List.map convert children)
+            ElmTest.describe tag (List.map convert children)
 
         Single tag thunk ->
-            Test.test tag thunk
+            ElmTest.test tag thunk
