@@ -1,10 +1,14 @@
 module Main exposing (..)
 
-import Html exposing (Html)
+import Html exposing (..)
+import Html.Attributes exposing (..)
 import PathToEnlightenment
 import Process
 import Task
 import Utils.Test as KoansTest
+
+
+-- MODEL
 
 
 type alias Model =
@@ -29,6 +33,10 @@ init =
             Task.succeed Step
     in
     ( Model [] Nothing testContext, Task.perform identity step )
+
+
+
+-- UPDATE
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -61,38 +69,95 @@ stepCmd run =
         |> Task.perform toMsg
 
 
-view : Model -> Html Msg
+
+-- VIEW
+
+
+view : Model -> Html msg
 view model =
-    case ( model.failure, model.finished ) of
-        ( Just error, _ ) ->
-            Html.text <|
-                "TEST FAILED\n"
-                    ++ viewGiven error
-                    ++ error.message
+    div
+        [ style
+            [ ( "backgroundColor", "#293c4b" )
+            , ( "color", "#FFFFFF" )
+            , ( "min-width", "100vw" )
+            , ( "min-height", "100vh" )
+            , ( "display", "flex" )
+            , ( "flex-direction", "column" )
+            , ( "justify-content", "center" )
+            , ( "text-align", "center" )
+            , ( "font-family", fonts )
+            , ( "font-size", "120%" )
+            ]
+        ]
+        [ h1
+            []
+            [ text "The Elm Koans" ]
+        , viewProgress
+            (floatLength model.context)
+            (floatLength model.finished)
+        , div
+            []
+            (viewDescription model)
+        ]
 
-        ( Nothing, current :: previous ) ->
-            Html.text <|
-                "RUNNING... "
-                    ++ String.join " in " current
 
-        ( Nothing, [] ) ->
-            Html.text
-                "WAITING..."
+viewDescription : Model -> List (Html msg)
+viewDescription model =
+    case ( model.failure, List.head model.finished ) of
+        ( Just { given, message }, _ ) ->
+            [ text "TODO"
+            ]
 
+        ( _, Just (description :: parent :: _) ) ->
+            [ h3 [] [ text parent ]
+            , pre [] [ text description ]
+            ]
 
-viewGiven : { a | given : Maybe String } -> String
-viewGiven { given } =
-    case given of
-        Just x ->
-            "GIVEN: " ++ x ++ "\n"
-
-        Nothing ->
-            ""
+        ( Nothing, _ ) ->
+            []
 
 
-subscriptions : Model -> Sub Msg
-subscriptions _ =
-    Sub.none
+viewProgress : Float -> Float -> Html msg
+viewProgress numRemaining numCompleted =
+    let
+        dimmension =
+            "0.3em"
+
+        progressPercentage =
+            100 * numCompleted / (numCompleted + numRemaining)
+    in
+    div
+        [ style
+            [ ( "backgroundColor", "#FFFFFF" )
+            , ( "height", dimmension )
+            , ( "width", toString progressPercentage ++ "%" )
+            , ( "min-width", dimmension )
+            , ( "margin", "0 auto" )
+            , ( "border-radius", dimmension )
+            ]
+        ]
+        []
+
+
+fonts : String
+fonts =
+    String.join ","
+        [ "'Source Sans Pro'"
+        , "'Trebuchet MS'"
+        , "'Lucida Grande'"
+        , "'Bitstream Vera Sans'"
+        , "'Helvetica Neue'"
+        , "sans-serif"
+        ]
+
+
+floatLength : List a -> Float
+floatLength =
+    toFloat << List.length
+
+
+
+-- MAIN
 
 
 main : Program Never Model Msg
@@ -101,5 +166,5 @@ main =
         { init = init
         , update = update
         , view = view
-        , subscriptions = subscriptions
+        , subscriptions = \_ -> Sub.none
         }
