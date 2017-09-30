@@ -55,7 +55,13 @@ asStream tests =
             Section description :: asStream (subTests ++ next)
 
         (Single description thunk) :: next ->
-            Run description (thunk >> ElmTestRunner.getFailure) :: asStream next
+            Run description (thunk >> getFailure) :: asStream next
+
+
+getFailure : Expect.Expectation -> Maybe Failure
+getFailure =
+    ElmTestRunner.getFailureReason
+        >> Maybe.map (\{ given, description } -> Failure given description)
 
 
 asCanonical : Test -> ElmTest.Test
