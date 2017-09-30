@@ -95,7 +95,8 @@ viewDescription finished failure seen =
         [ style
             [ ( "background-color", "#EEEEEE" )
             , ( "border-radius", "1px" )
-            , ( "padding", "2em" )
+            , ( "line-height", "1.75em" )
+            , ( "padding", "1em 3em" )
             ]
         ]
     <|
@@ -151,7 +152,7 @@ terminalText events =
         (KoansTest.Run description _) :: [] ->
             b
                 []
-                [ text (description ++ " ...")
+                [ text (description ++ " ...\n\n")
                 ]
                 :: []
 
