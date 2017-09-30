@@ -14,13 +14,19 @@ import Utils.Test as KoansTest
 type alias Model =
     { seen : List KoansTest.Event
     , upcoming : List KoansTest.Event
-    , failure : Maybe KoansTest.Failure
+    , final : Final
     }
+
+
+type Final
+    = InProgress
+    | Finished
+    | Failed KoansTest.Failure
 
 
 type Msg
     = Step
-    | Failure KoansTest.Failure
+    | Fail KoansTest.Failure
 
 
 init : ( Model, Cmd Msg )
@@ -29,7 +35,7 @@ init =
         events =
             KoansTest.asStream PathToEnlightenment.koans
     in
-    ( Model [] events Nothing, step )
+    ( Model [] events InProgress, step )
 
 
 
@@ -39,11 +45,11 @@ init =
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case ( msg, model.upcoming ) of
-        ( Failure error, _ ) ->
-            ( { model | failure = Just error }, Cmd.none )
+        ( Fail error, _ ) ->
+            ( { model | final = Failed error }, Cmd.none )
 
         ( Step, [] ) ->
-            ( model, Cmd.none )
+            ( { model | final = Finished }, Cmd.none )
 
         ( Step, event :: rest ) ->
             ( { model | upcoming = rest, seen = model.seen ++ [ event ] }, attempt event )
@@ -59,7 +65,7 @@ attempt event =
             let
                 toMsg =
                     thunk
-                        >> Maybe.map Failure
+                        >> Maybe.map Fail
                         >> Maybe.withDefault Step
             in
             Process.sleep 0
@@ -85,34 +91,21 @@ view model =
             ]
         ]
         [ viewHeader (floatLength model.upcoming) (floatLength model.seen)
-        , viewDescription (List.isEmpty model.upcoming) model.failure model.seen
+        , viewRunner model.final model.seen
         ]
 
 
-viewDescription : Bool -> Maybe KoansTest.Failure -> List KoansTest.Event -> Html msg
-viewDescription finished failure seen =
+viewRunner : Final -> List KoansTest.Event -> Html msg
+viewRunner final seen =
     pre
         [ style
             [ ( "background-color", "#EEEEEE" )
             , ( "border-radius", "1px" )
             , ( "line-height", "1.75em" )
-            , ( "padding", "1em 3em" )
+            , ( "padding", "3em" )
             ]
         ]
-    <|
-        case failure of
-            Just { given, message } ->
-                [ text "WHOA A FAILURE!"
-                ]
-
-            Nothing ->
-                if finished then
-                    [ b [] [ text "CONGRATULATIONS!" ]
-                    , text " You're all done 🎉"
-                    ]
-                else
-                    terminalText seen
-                        |> List.intersperse (text "\n")
+        (terminalText "" seen ++ viewFinal final)
 
 
 viewHeader : Float -> Float -> Html msg
@@ -136,8 +129,46 @@ viewHeader numRemaining numSeen =
         ]
 
 
-terminalText : List KoansTest.Event -> List (Html msg)
-terminalText events =
+viewFinal : Final -> List (Html msg)
+viewFinal final =
+    case final of
+        InProgress ->
+            [ div
+                [ style
+                    [ ( "animation", "1s blink ease infinite" )
+                    , ( "background-color", "black" )
+                    , ( "height", "1.5em" )
+                    , ( "width", "0.75em" )
+                    ]
+                , title
+                    "Fill in the next blank to continue."
+                ]
+                []
+            ]
+
+        Finished ->
+            [ text check
+            , b [ green ]
+                [ text "\n\nCONGRATULATIONS!"
+                ]
+            , text " You're all done 🎉"
+            ]
+
+        Failed { given, message } ->
+            [ b [ red ]
+                [ text "✗\n\n"
+                , case given of
+                    Just arg ->
+                        text ("GIVEN " ++ arg ++ ", " ++ message)
+
+                    Nothing ->
+                        text message
+                ]
+            ]
+
+
+terminalText : String -> List KoansTest.Event -> List (Html msg)
+terminalText sectionPrefix events =
     case events of
         [] ->
             []
@@ -145,19 +176,25 @@ terminalText events =
         (KoansTest.Section description) :: rest ->
             b
                 []
-                [ text ("\n-- " ++ String.toUpper description ++ "\n")
+                [ text
+                    (sectionPrefix
+                        ++ "-- "
+                        ++ String.toUpper description
+                        ++ "\n"
+                    )
                 ]
-                :: terminalText rest
+                :: terminalText "\n\n" rest
 
         (KoansTest.Run description _) :: [] ->
             b
                 []
-                [ text (description ++ " ...\n\n")
+                [ text ("\n" ++ description ++ " ")
                 ]
                 :: []
 
         (KoansTest.Run description _) :: rest ->
-            text (description ++ " ✔") :: terminalText rest
+            text ("\n" ++ description ++ " " ++ check)
+                :: terminalText "\n\n" rest
 
 
 fonts : String
@@ -175,6 +212,25 @@ fonts =
 floatLength : List a -> Float
 floatLength =
     toFloat << List.length
+
+
+red : Attribute msg
+red =
+    style
+        [ ( "color", "#D5200C" )
+        ]
+
+
+green : Attribute msg
+green =
+    style
+        [ ( "color", "#2AA198" )
+        ]
+
+
+check : String
+check =
+    "✔"
 
 
 
