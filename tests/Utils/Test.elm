@@ -1,11 +1,11 @@
 module Utils.Test
     exposing
-        ( Context
+        ( Event(..)
         , Failure
         , Test
-        , convert
+        , asCanonical
+        , asStream
         , describe
-        , flatten
         , test
         )
 
@@ -36,38 +36,33 @@ test =
 -- RUNNING TESTS
 
 
-type alias Context =
-    List ( List String, () -> Maybe Failure )
-
-
 type alias Failure =
     { given : Maybe String, message : String }
 
 
-flatten : Test -> Context
-flatten =
-    flattenHelp []
+type Event
+    = Section String
+    | Run String (() -> Maybe Failure)
 
 
-flattenHelp : List String -> Test -> Context
-flattenHelp labels test =
-    case test of
-        Batch _ [] ->
+asStream : List Test -> List Event
+asStream tests =
+    case tests of
+        [] ->
             []
 
-        Batch description (current :: next) ->
-            flattenHelp (description :: labels) current
-                ++ flattenHelp labels (Batch description next)
+        (Batch description subTests) :: next ->
+            Section description :: asStream (subTests ++ next)
 
-        Single description thunk ->
-            [ ( description :: labels, thunk >> ElmTestRunner.getFailure ) ]
+        (Single description thunk) :: next ->
+            Run description (thunk >> ElmTestRunner.getFailure) :: asStream next
 
 
-convert : Test -> ElmTest.Test
-convert test =
+asCanonical : Test -> ElmTest.Test
+asCanonical test =
     case test of
         Batch description children ->
-            ElmTest.describe description (List.map convert children)
+            ElmTest.describe description (List.map asCanonical children)
 
         Single description thunk ->
             ElmTest.test description thunk

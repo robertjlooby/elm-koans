@@ -36,30 +36,29 @@ import Utils.Test as KoansTest
     If you're adding a new koan, just add it to the list below!
 
 -}
-koans : KoansTest.Test
+koans : List KoansTest.Test
 koans =
-    KoansTest.describe "The Elm Koans"
-        [ Koans01AboutExpects.testSuite
-        , Koans02AboutLiterals.testSuite
-        , Koans03AboutComparisonOperators.testSuite
-        , Koans04AboutLogicalOperators.testSuite
-        , Koans05AboutMathematicalOperators.testSuite
-        , Koans06AboutNumberConversions.testSuite
-        , Koans07AboutFunctions.testSuite
-        , Koans08AboutMaybe.testSuite
-        , Koans09AboutLists.testSuite
-        , Koans10AboutArrays.testSuite
-        , Koans11AboutTuples.testSuite
-        , Koans12AboutDictionaries.testSuite
-        , Koans13AboutResults.testSuite
-        , Koans14AboutStrings.testSuite
-        , Koans15AboutRegexes.testSuite
-        , Koans16AboutTime.testSuite
-        , Koans17AboutDates.testSuite
-        , Koans18AboutSets.testSuite
-        , Koans19AboutRecords.testSuite
-        , Koans20AboutUnionTypes.testSuite
-        ]
+    [ Koans01AboutExpects.testSuite
+    , Koans02AboutLiterals.testSuite
+    , Koans03AboutComparisonOperators.testSuite
+    , Koans04AboutLogicalOperators.testSuite
+    , Koans05AboutMathematicalOperators.testSuite
+    , Koans06AboutNumberConversions.testSuite
+    , Koans07AboutFunctions.testSuite
+    , Koans08AboutMaybe.testSuite
+    , Koans09AboutLists.testSuite
+    , Koans10AboutArrays.testSuite
+    , Koans11AboutTuples.testSuite
+    , Koans12AboutDictionaries.testSuite
+    , Koans13AboutResults.testSuite
+    , Koans14AboutStrings.testSuite
+    , Koans15AboutRegexes.testSuite
+    , Koans16AboutTime.testSuite
+    , Koans17AboutDates.testSuite
+    , Koans18AboutSets.testSuite
+    , Koans19AboutRecords.testSuite
+    , Koans20AboutUnionTypes.testSuite
+    ]
 
 
 {-|
@@ -69,4 +68,5 @@ koans =
 -}
 suite : ElmTest.Test
 suite =
-    KoansTest.convert koans
+    ElmTest.describe "The Elm Koans"
+        (List.map KoansTest.asCanonical koans)
