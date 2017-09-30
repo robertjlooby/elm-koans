@@ -133,36 +133,36 @@ viewFinal : Final -> List (Html msg)
 viewFinal final =
     case final of
         InProgress ->
-            [ div
+            [ node "cursor"
                 [ style
                     [ ( "animation", "1s blink ease infinite" )
                     , ( "background-color", "black" )
-                    , ( "height", "1.5em" )
-                    , ( "width", "0.75em" )
                     ]
                 , title
                     "Fill in the next blank to continue."
                 ]
-                []
+                [ text " "
+                ]
             ]
 
         Finished ->
             [ text check
-            , b [ green ]
+            , b
+                [ green
+                ]
                 [ text "\n\nCONGRATULATIONS!"
                 ]
             , text " You're all done 🎉"
             ]
 
         Failed { given, message } ->
-            [ b [ red ]
+            [ b
+                [ red
+                ]
                 [ text "✗\n\n"
-                , case given of
-                    Just arg ->
-                        text ("GIVEN " ++ arg ++ ", " ++ message)
-
-                    Nothing ->
-                        text message
+                , text <|
+                    Maybe.withDefault message <|
+                        Maybe.map (\arg -> "GIVEN: " ++ arg ++ "\n" ++ message) given
                 ]
             ]
 
