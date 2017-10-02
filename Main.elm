@@ -105,7 +105,7 @@ viewRunner final seen =
             , ( "padding", "3em" )
             ]
         ]
-        (terminalText "" seen ++ viewFinal final)
+        (terminalText noBreak seen ++ viewFinal final)
 
 
 viewHeader : Float -> Float -> Html msg
@@ -146,18 +146,17 @@ viewFinal final =
             ]
 
         Finished ->
-            [ text check
+            [ text "🎉"
             , b
-                [ green
+                [ style [ ( "color", "#2AA198" ) ]
                 ]
-                [ text "\n\nCONGRATULATIONS!"
+                [ text "\n\nCONGRATULATIONS - You're all done!"
                 ]
-            , text " You're all done 🎉"
             ]
 
         Failed { given, message } ->
             [ b
-                [ red
+                [ style [ ( "color", "#D5200C" ) ]
                 ]
                 [ text "✗\n\n"
                 , text <|
@@ -168,7 +167,7 @@ viewFinal final =
 
 
 terminalText : String -> List KoansTest.Event -> List (Html msg)
-terminalText sectionPrefix events =
+terminalText sectionBreak events =
     case events of
         [] ->
             []
@@ -177,13 +176,13 @@ terminalText sectionPrefix events =
             b
                 []
                 [ text
-                    (sectionPrefix
+                    (sectionBreak
                         ++ "-- "
                         ++ String.toUpper description
                         ++ "\n"
                     )
                 ]
-                :: terminalText "\n\n" rest
+                :: terminalText largeBreak rest
 
         (KoansTest.Run description _) :: [] ->
             b
@@ -193,8 +192,8 @@ terminalText sectionPrefix events =
                 :: []
 
         (KoansTest.Run description _) :: rest ->
-            text ("\n" ++ description ++ " " ++ check)
-                :: terminalText "\n\n" rest
+            text ("\n" ++ description ++ " ✔")
+                :: terminalText largeBreak rest
 
 
 fonts : String
@@ -209,28 +208,19 @@ fonts =
         ]
 
 
+noBreak : String
+noBreak =
+    ""
+
+
+largeBreak : String
+largeBreak =
+    "\n\n\n"
+
+
 floatLength : List a -> Float
 floatLength =
     toFloat << List.length
-
-
-red : Attribute msg
-red =
-    style
-        [ ( "color", "#D5200C" )
-        ]
-
-
-green : Attribute msg
-green =
-    style
-        [ ( "color", "#2AA198" )
-        ]
-
-
-check : String
-check =
-    "✔"
 
 
 
