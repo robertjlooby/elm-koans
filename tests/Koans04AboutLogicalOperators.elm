@@ -1,26 +1,26 @@
 module Koans04AboutLogicalOperators exposing (testSuite)
 
 import Expect
-import Test exposing (describe, test)
-import TestHelpers exposing (..)
+import Utils.Test exposing (describe, test)
+import Utils.Blank exposing (..)
 
 
 testSuite =
     describe "About Logical Operators"
         [ test "not negates a boolean" <|
             \() ->
-                (not xBool)
+                not (x____replace me____x)
                     |> Expect.equal False
         , test "&& is a logical AND" <|
             \() ->
-                (True && xBool)
+                True && x____replace me____x
                     |> Expect.true "Should be True"
         , test "|| is a logical OR" <|
             \() ->
-                (False || xBool)
+                False || x____replace me____x
                     |> Expect.true "Should be True"
         , test "xor is a logical XOR" <|
             \() ->
-                (False |> xor xBool)
+                False |> xor (x____replace me____x)
                     |> Expect.true "Should be True"
         ]

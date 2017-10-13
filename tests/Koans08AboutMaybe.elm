@@ -1,34 +1,34 @@
 module Koans08AboutMaybe exposing (testSuite)
 
 import Expect
-import Test exposing (describe, test)
-import TestHelpers exposing (..)
+import Utils.Test exposing (describe, test)
+import Utils.Blank exposing (..)
 
 
 testSuite =
     describe "About Maybe"
         [ test "maybe represents a value that may be nothing" <|
             \() ->
-                xMaybe
+                x____replace me____x
                     |> Expect.equal Nothing
         , test "or the value could be something" <|
             \() ->
-                xMaybe
+                x____replace me____x
                     |> Expect.equal (Just 5)
         , test "withDefault can be used to get the value from a maybe" <|
             \() ->
-                xNum
+                x____replace me____x
                     |> Expect.equal (Maybe.withDefault 3 (Just 5))
         , test "but will give the default value if there is nothing" <|
             \() ->
-                xNum
+                x____replace me____x
                     |> Expect.equal (Maybe.withDefault 3 Nothing)
         , test "map will transform the value in a maybe" <|
             \() ->
-                xMaybe
+                x____replace me____x
                     |> Expect.equal (Maybe.map (\n -> n / 2) (Just 4))
         , test "but will not transform a nothing" <|
             \() ->
-                xMaybe
+                x____replace me____x
                     |> Expect.equal (Maybe.map (\n -> n / 2) Nothing)
         ]

@@ -1,66 +1,66 @@
 module Koans05AboutMathematicalOperators exposing (testSuite)
 
 import Expect
-import Test exposing (describe, test)
-import TestHelpers exposing (..)
+import Utils.Test exposing (describe, test)
+import Utils.Blank exposing (..)
 
 
 testSuite =
     describe "About Mathematical Operators"
         [ test "negate gives the negative of a number" <|
             \() ->
-                (negate xNum)
+                negate (x____replace me____x)
                     |> Expect.equal -3
         , test "abs gives the absolute value of a number" <|
             \() ->
-                (abs xNum)
+                abs (x____replace me____x)
                     |> Expect.equal 3
         , test "sqrt gives the square root of a Float" <|
             \() ->
-                (sqrt xNum)
+                sqrt (x____replace me____x)
                     |> Expect.equal 3.0
         , test "+ adds numbers" <|
             \() ->
-                (1 + xNum)
+                1 + x____replace me____x
                     |> Expect.equal 3
         , test "- subtracts numbers" <|
             \() ->
-                (7 - xNum)
+                7 - x____replace me____x
                     |> Expect.equal 3
         , test "* multiplies numbers" <|
             \() ->
-                (4 * xNum)
+                4 * x____replace me____x
                     |> Expect.equal 6
         , test "/ divides Floats" <|
             \() ->
-                (5 / xNum)
+                5 / x____replace me____x
                     |> Expect.equal 2.5
         , test "// divides Ints" <|
             \() ->
-                (5 // xNum)
+                5 // x____replace me____x
                     |> Expect.equal 2
         , test "rem gives the remainder after division" <|
             \() ->
-                (5 |> rem xNum)
+                5 |> rem (x____replace me____x)
                     |> Expect.equal 2
         , test "% performs modular arithmetic (which is different)" <|
             \() ->
-                xNum
+                x____replace me____x
                     |> Expect.equal (-1 % 5)
         , test "logBase returns the log of the value in the given base" <|
             \() ->
-                xNum
+                x____replace me____x
                     |> Expect.equal (logBase 2 8)
         , test "clamp returns the value if it is between the given min and max" <|
             \() ->
-                xNum
+                x____replace me____x
                     |> Expect.equal (clamp 1 10 5)
         , test "clamp returns the min value if the value is below the minimum" <|
             \() ->
-                xNum
+                x____replace me____x
                     |> Expect.equal (clamp 1 10 -5)
         , test "clamp returns the max value if the value is above the maximum" <|
             \() ->
-                xNum
+                x____replace me____x
                     |> Expect.equal (clamp 1 10 50)
         ]
