@@ -27,6 +27,8 @@ testSuite =
             \() ->
                 Base (x____replace me____x)
                     |> Expect.equal (Base C)
+          -- These are obviously different values, but they're the same type so it still compiles.
+          -- Don't overthink this one!
         , test "all types in the union type are the same type" <|
             \() ->
                 (Strand [ A, T, C, G ])
