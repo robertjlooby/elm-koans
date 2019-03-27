@@ -1,35 +1,55 @@
 module Koans16AboutTime exposing (testSuite)
 
 import Expect
-import Utils.Test exposing (describe, test)
-import Utils.Blank exposing (..)
 import Time
+import Utils.Blank exposing (..)
+import Utils.Test exposing (describe, test)
+
+
+
+-- epoch is 1970-01-01 00:00:00
+
+
+epoch =
+    Time.millisToPosix 0
 
 
 testSuite =
     describe "About Time"
-        [ test "time is just a Float" <|
+        [ test "you can get millis for a posix time" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal 123.45
-        , test "a constant exists for hour" <|
+                    |> Expect.equal (Time.posixToMillis epoch)
+        , test "the year of a posix is human parsable" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (1 * Time.hour)
-        , test "and minute" <|
+                    |> Expect.equal (Time.toYear Time.utc epoch)
+        , test "the month of a posix is human parsable" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (1 * Time.minute)
-        , test "and second" <|
+                    |> Expect.equal (Time.toMonth Time.utc epoch)
+        , test "the day of a posix is human parsable" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (1 * Time.second)
-        , test "and millisecond" <|
+                    |> Expect.equal (Time.toDay Time.utc epoch)
+        , test "the weekday of a posix is human parsable" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (1 * Time.millisecond)
-        , test "helpers exist to convert back to Floats" <|
+                    |> Expect.equal (Time.toWeekday Time.utc epoch)
+        , test "the hour of a posix is human parsable" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (Time.inSeconds 1000)
+                    |> Expect.equal (Time.toHour Time.utc epoch)
+        , test "the minute of a posix is human parsable" <|
+            \() ->
+                x____replace me____x
+                    |> Expect.equal (Time.toMinute Time.utc epoch)
+        , test "the second of a posix is human parsable" <|
+            \() ->
+                x____replace me____x
+                    |> Expect.equal (Time.toSecond Time.utc epoch)
+        , test "the millis of a posix is human parsable" <|
+            \() ->
+                x____replace me____x
+                    |> Expect.equal (Time.toMillis Time.utc epoch)
         ]

@@ -1,9 +1,8 @@
-module Utils.Blank
-    exposing
-        ( FILL_ME_IN
-        , me____x
-        , x____replace
-        )
+module Utils.Blank exposing
+    ( FILL_ME_IN
+    , me____x
+    , x____replace
+    )
 
 
 type FILL_ME_IN
@@ -17,4 +16,4 @@ me____x =
 
 x____replace : FILL_ME_IN -> a
 x____replace _ =
-    Debug.crash "FILL IN THE BLANK"
+    Debug.todo "FILL IN THE BLANK"

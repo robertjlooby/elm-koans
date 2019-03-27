@@ -16,10 +16,9 @@ import Koans13AboutResults
 import Koans14AboutStrings
 import Koans15AboutRegexes
 import Koans16AboutTime
-import Koans17AboutDates
-import Koans18AboutSets
-import Koans19AboutRecords
-import Koans20AboutUnionTypes
+import Koans17AboutSets
+import Koans18AboutRecords
+import Koans19AboutUnionTypes
 import Test as ElmTest
 import Utils.Test as KoansTest
 
@@ -54,10 +53,9 @@ koans =
     , Koans14AboutStrings.testSuite
     , Koans15AboutRegexes.testSuite
     , Koans16AboutTime.testSuite
-    , Koans17AboutDates.testSuite
-    , Koans18AboutSets.testSuite
-    , Koans19AboutRecords.testSuite
-    , Koans20AboutUnionTypes.testSuite
+    , Koans17AboutSets.testSuite
+    , Koans18AboutRecords.testSuite
+    , Koans19AboutUnionTypes.testSuite
     ]
 
 

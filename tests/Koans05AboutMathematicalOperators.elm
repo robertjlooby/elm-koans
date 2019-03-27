@@ -1,8 +1,8 @@
 module Koans05AboutMathematicalOperators exposing (testSuite)
 
 import Expect
-import Utils.Test exposing (describe, test)
 import Utils.Blank exposing (..)
+import Utils.Test exposing (describe, test)
 
 
 testSuite =
@@ -34,19 +34,19 @@ testSuite =
         , test "/ divides Floats" <|
             \() ->
                 5 / x____replace me____x
-                    |> Expect.equal 2.5
+                    |> Expect.within (Expect.Absolute 0.0001) 2.5
         , test "// divides Ints" <|
             \() ->
                 5 // x____replace me____x
                     |> Expect.equal 2
-        , test "rem gives the remainder after division" <|
+        , test "remainderBy gives the remainder after division" <|
             \() ->
-                5 |> rem (x____replace me____x)
+                5 |> remainderBy (x____replace me____x)
                     |> Expect.equal 2
-        , test "% performs modular arithmetic (which is different)" <|
+        , test "modBy performs modular arithmetic (which is different)" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (-1 % 5)
+                    |> Expect.equal (modBy 5 -1)
         , test "logBase returns the log of the value in the given base" <|
             \() ->
                 x____replace me____x

@@ -1,8 +1,8 @@
-module Koans19AboutRecords exposing (testSuite)
+module Koans18AboutRecords exposing (testSuite)
 
 import Expect
-import Utils.Test exposing (describe, test)
 import Utils.Blank exposing (..)
+import Utils.Test exposing (describe, test)
 
 
 point =
