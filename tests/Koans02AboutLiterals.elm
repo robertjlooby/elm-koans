@@ -41,6 +41,24 @@ testSuite =
             \() ->
                 x____replace me____x
                     |> Expect.within (Expect.Absolute 0.0001) num
+        , test "floats can be expected to be within an absolute range" <|
+            let
+                num : Float
+                num =
+                    41.9999
+            in
+            \() ->
+                x____replace me____x
+                    |> Expect.within (Expect.Absolute 0.0001) num
+        , test "or floats can be expected to be within relative range (0.01 meaning 1%)" <|
+            let
+                num : Float
+                num =
+                    41.6
+            in
+            \() ->
+                x____replace me____x
+                    |> Expect.within (Expect.Relative 0.01) num
         , test "lists are denoted by brackets" <|
             \() ->
                 x____replace me____x
