@@ -36,6 +36,11 @@ multiplyBy2 x =
     2 * x
 
 
+numberBiPredicate : number -> number -> Bool
+numberBiPredicate =
+    (<)
+
+
 testSuite =
     describe "About Functions"
         [ test "the identity function returns whatever it is passed" <|
@@ -82,4 +87,12 @@ testSuite =
             \() ->
                 x____replace me____x
                     |> Expect.equal ((subtract4 >> multiplyBy2) 9)
+        , test "operators can be used as functions, too" <|
+            \() ->
+                x____replace me____x
+                    |> Expect.equal ((+) 6 4)
+        , test "they are really functions" <|
+            \() ->
+                x____replace me____x
+                    |> Expect.equal (numberBiPredicate 4 6)
         ]
