@@ -87,6 +87,10 @@ testSuite =
             \() ->
                 x____replace me____x
                     |> Expect.equal (List.append [ 1, 2 ] [ 3, 4 ])
+        , test "for appending you may use the append operator (++)" <|
+            \() ->
+                x____replace me____x
+                    |> Expect.equal ([ 1, 2 ] ++ [ 3, 4 ])
         , test "concat appends the elements in a list of lists" <|
             \() ->
                 x____replace me____x
