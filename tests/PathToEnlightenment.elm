@@ -19,6 +19,7 @@ import Koans16AboutTime
 import Koans17AboutSets
 import Koans18AboutRecords
 import Koans19AboutUnionTypes
+import Koans20AboutTypeVariables
 import Test as ElmTest
 import Utils.Test as KoansTest
 
@@ -56,6 +57,7 @@ koans =
     , Koans17AboutSets.testSuite
     , Koans18AboutRecords.testSuite
     , Koans19AboutUnionTypes.testSuite
+    , Koans20AboutTypeVariables.testSuite
     ]
 
 
