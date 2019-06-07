@@ -20,6 +20,7 @@ import Koans17AboutSets
 import Koans18AboutRecords
 import Koans19AboutUnionTypes
 import Koans20AboutTypeVariables
+import Koans21AboutPatternMatching
 import Test as ElmTest
 import Utils.Test as KoansTest
 
@@ -58,6 +59,7 @@ koans =
     , Koans18AboutRecords.testSuite
     , Koans19AboutUnionTypes.testSuite
     , Koans20AboutTypeVariables.testSuite
+    , Koans21AboutPatternMatching.testSuite
     ]
 
 
