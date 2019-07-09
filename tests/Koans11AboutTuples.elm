@@ -1,7 +1,6 @@
 module Koans11AboutTuples exposing (testSuite)
 
 import Expect
-import Tuple
 import Utils.Blank exposing (..)
 import Utils.Test exposing (describe, test)
 

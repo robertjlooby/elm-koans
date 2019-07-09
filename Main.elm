@@ -149,14 +149,12 @@ viewFinal final =
 
         Failed { given, description, reason } ->
             let
-                formattedReason = format "" reason
-
                 failureText =
-                    Maybe.withDefault description <|
-                        Maybe.map (\g -> "GIVEN: " ++ g ++ "\n" ++ description ++ ":\n" ++ formattedReason) given
+                    case given of
+                        Nothing -> format description reason
+                        Just x  -> "GIVEN: " ++ x ++ "\n" ++ format description reason
             in
-                [ b
-                    [ style "color" "#D5200C" ]
+                [ b [ style "color" "#D5200C" ]
                     [ text "✗\n\n"
                     , text failureText
                     ]
