@@ -1,11 +1,14 @@
 module Main exposing (..)
 
+import Browser
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import PathToEnlightenment
 import Process
 import Task
 import Utils.Test as KoansTest
+import Test.Runner.Failure exposing (format)
+
 
 
 -- STATE
@@ -29,8 +32,8 @@ type Msg
     | Fail KoansTest.Failure
 
 
-init : ( Model, Cmd Msg )
-init =
+init : () -> ( Model, Cmd Msg )
+init _ =
     let
         events =
             KoansTest.asStream PathToEnlightenment.koans
@@ -84,11 +87,9 @@ step =
 view : Model -> Html msg
 view model =
     div
-        [ style
-            [ ( "max-width", "960px" )
-            , ( "font-family", fonts )
-            , ( "margin", "0 auto" )
-            ]
+        [ style "max-width" "960px"
+        , style "font-family" fonts
+        , style "margin" "0 auto"
         ]
         [ viewHeader (floatLength model.upcoming) (floatLength model.seen)
         , viewRunner model.final model.seen
@@ -98,12 +99,9 @@ view model =
 viewRunner : Final -> List KoansTest.Event -> Html msg
 viewRunner final seen =
     pre
-        [ style
-            [ ( "background-color", "#EEEEEE" )
-            , ( "border-radius", "1px" )
-            , ( "line-height", "1.75em" )
-            , ( "padding", "3em" )
-            ]
+        [ style "border-radius" "1px"
+        , style "line-height" "1.75em"
+        , style "padding" "3em"
         ]
         (terminalText noBreak seen ++ viewFinal final)
 
@@ -111,19 +109,17 @@ viewRunner final seen =
 viewHeader : Float -> Float -> Html msg
 viewHeader numRemaining numSeen =
     div
-        [ style
-            [ ( "display", "flex" )
-            , ( "flex-direction", "row" )
-            , ( "justify-content", "space-between" )
-            , ( "align-items", "center" )
-            ]
+        [ style "display" "flex"
+        , style "flex-direction" "row"
+        , style "justify-content" "space-between"
+        , style "align-items" "center"
         ]
         [ h1
             []
             [ text "The Elm Koans" ]
         , progress
-            [ value (toString numSeen)
-            , Html.Attributes.max (toString (numSeen + numRemaining))
+            [ value (String.fromFloat numSeen)
+            , Html.Attributes.max (String.fromFloat (numSeen + numRemaining))
             ]
             []
         ]
@@ -134,10 +130,8 @@ viewFinal final =
     case final of
         InProgress ->
             [ node "cursor"
-                [ style
-                    [ ( "animation", "1s blink ease infinite" )
-                    , ( "background-color", "black" )
-                    ]
+                [ style "animation" "1s blink ease infinite"
+                , style "background-color" "black"
                 , title
                     "Fill in the next blank to continue."
                 ]
@@ -148,22 +142,23 @@ viewFinal final =
         Finished ->
             [ text "🎉"
             , b
-                [ style [ ( "color", "#2AA198" ) ]
-                ]
+                [ style "color" "#2AA198" ]
                 [ text "\n\nCONGRATULATIONS - You're all done!"
                 ]
             ]
 
-        Failed { given, message } ->
-            [ b
-                [ style [ ( "color", "#D5200C" ) ]
+        Failed { given, description, reason } ->
+            let
+                failureText =
+                    case given of
+                        Nothing -> format description reason
+                        Just x  -> "GIVEN: " ++ x ++ "\n" ++ format description reason
+            in
+                [ b [ style "color" "#D5200C" ]
+                    [ text "✗\n\n"
+                    , text failureText
+                    ]
                 ]
-                [ text "✗\n\n"
-                , text <|
-                    Maybe.withDefault message <|
-                        Maybe.map (\arg -> "GIVEN: " ++ arg ++ "\n" ++ message) given
-                ]
-            ]
 
 
 terminalText : String -> List KoansTest.Event -> List (Html msg)
@@ -227,9 +222,9 @@ floatLength =
 -- MAIN
 
 
-main : Program Never Model Msg
+main : Program () Model Msg
 main =
-    Html.program
+    Browser.element
         { init = init
         , update = update
         , view = view

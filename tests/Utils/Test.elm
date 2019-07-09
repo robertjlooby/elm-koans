@@ -1,17 +1,18 @@
-module Utils.Test
-    exposing
-        ( Event(..)
-        , Failure
-        , Test
-        , asCanonical
-        , asStream
-        , describe
-        , test
-        )
+module Utils.Test exposing
+    ( Event(..)
+    , Failure
+    , Test
+    , asCanonical
+    , asStream
+    , describe
+    , test
+    )
 
 import Expect
 import Test as ElmTest
 import Test.Runner as ElmTestRunner
+import Test.Runner.Failure exposing (Reason)
+
 
 
 -- KOANS
@@ -37,7 +38,10 @@ test =
 
 
 type alias Failure =
-    { given : Maybe String, message : String }
+    { given : Maybe String
+    , description : String
+    , reason : Reason
+    }
 
 
 type Event
@@ -55,12 +59,12 @@ asStream tests =
             Section description :: asStream (subTests ++ next)
 
         (Single description thunk) :: next ->
-            Run description (thunk >> ElmTestRunner.getFailure) :: asStream next
+            Run description (thunk >> ElmTestRunner.getFailureReason) :: asStream next
 
 
 asCanonical : Test -> ElmTest.Test
-asCanonical test =
-    case test of
+asCanonical aTest =
+    case aTest of
         Batch description children ->
             ElmTest.describe description (List.map asCanonical children)
 

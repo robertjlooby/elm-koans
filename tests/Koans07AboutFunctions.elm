@@ -1,8 +1,8 @@
 module Koans07AboutFunctions exposing (testSuite)
 
 import Expect
-import Utils.Test exposing (describe, test)
 import Utils.Blank exposing (..)
+import Utils.Test exposing (describe, test)
 
 
 add1 x =
@@ -23,16 +23,22 @@ subtractFrom4 =
     subtract 4
 
 
+subtract4 : number -> number
+subtract4 x =
+    subtract x 4
+
+
 always5 =
     always 5
 
 
-subtract4 =
-    (flip subtract) 4
-
-
 multiplyBy2 x =
     2 * x
+
+
+numberBiPredicate : number -> number -> Bool
+numberBiPredicate =
+    (<)
 
 
 testSuite =
@@ -65,10 +71,6 @@ testSuite =
             \() ->
                 x____replace me____x
                     |> Expect.equal (always5 4)
-        , test "the flip function flips the order of the first two arguments of a function" <|
-            \() ->
-                x____replace me____x
-                    |> Expect.equal (subtract4 9)
         , test "f <| a applies the function f to the arg a" <|
             \() ->
                 x____replace me____x
@@ -85,4 +87,12 @@ testSuite =
             \() ->
                 x____replace me____x
                     |> Expect.equal ((subtract4 >> multiplyBy2) 9)
+        , test "operators can be used as functions, too" <|
+            \() ->
+                x____replace me____x
+                    |> Expect.equal ((+) 6 4)
+        , test "they are really functions" <|
+            \() ->
+                x____replace me____x
+                    |> Expect.equal (numberBiPredicate 4 6)
         ]

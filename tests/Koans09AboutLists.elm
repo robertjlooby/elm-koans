@@ -1,8 +1,8 @@
 module Koans09AboutLists exposing (testSuite)
 
 import Expect
-import Utils.Test exposing (describe, test)
 import Utils.Blank exposing (..)
+import Utils.Test exposing (describe, test)
 
 
 testSuite =
@@ -50,15 +50,15 @@ testSuite =
         , test "filter returns the elements that return true for a predicate function" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (List.filter (\x -> x % 2 == 0) [ 1, 2, 3, 4 ])
+                    |> Expect.equal (List.filter (\x -> modBy x 2 == 0) [ 1, 2, 3, 4 ])
         , test "all tests whether all elements of a list return true for a predicate function" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (List.all (\x -> x % 2 == 0) [ 2, 4 ])
+                    |> Expect.equal (List.all (\x -> modBy x 2 == 0) [ 2, 4 ])
         , test "any tests whether any elements of a list return true for a predicate function" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (List.any (\x -> x % 2 == 0) [ 1, 2, 3 ])
+                    |> Expect.equal (List.any (\x -> modBy x 2 == 0) [ 1, 2, 3 ])
         , test "repeat returns a list with n copies of a value" <|
             \() ->
                 x____replace me____x
@@ -78,7 +78,7 @@ testSuite =
         , test "sortBy sorts using a function that returns a comparable" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (List.sortBy (\x -> x % 3) [ 10, 6, 8 ])
+                    |> Expect.equal (List.sortBy (\x -> modBy x 3) [ 10, 6, 8 ])
         , test ":: is the cons operator" <|
             \() ->
                 x____replace me____x
@@ -87,6 +87,10 @@ testSuite =
             \() ->
                 x____replace me____x
                     |> Expect.equal (List.append [ 1, 2 ] [ 3, 4 ])
+        , test "for appending you may use the append operator (++)" <|
+            \() ->
+                x____replace me____x
+                    |> Expect.equal ([ 1, 2 ] ++ [ 3, 4 ])
         , test "concat appends the elements in a list of lists" <|
             \() ->
                 x____replace me____x
@@ -116,8 +120,4 @@ testSuite =
             \() ->
                 x____replace me____x
                     |> Expect.equal (List.foldr (\x y -> x ++ y) "a" [ "b", "c", "d" ])
-        , test "scanl reduces a list from the left, building a list of intermediate results" <|
-            \() ->
-                x____replace me____x
-                    |> Expect.equal (List.scanl (\x y -> x ++ y) "a" [ "b", "c", "d" ])
         ]

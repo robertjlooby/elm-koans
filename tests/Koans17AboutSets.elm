@@ -1,9 +1,9 @@
-module Koans18AboutSets exposing (testSuite)
+module Koans17AboutSets exposing (testSuite)
 
 import Expect
 import Set
-import Utils.Test exposing (describe, test)
 import Utils.Blank exposing (..)
+import Utils.Test exposing (describe, test)
 
 
 assertEqualSets set1 set2 =

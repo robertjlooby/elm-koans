@@ -1,9 +1,8 @@
 module Koans11AboutTuples exposing (testSuite)
 
 import Expect
-import Utils.Test exposing (describe, test)
 import Utils.Blank exposing (..)
-import Tuple
+import Utils.Test exposing (describe, test)
 
 
 testSuite =
@@ -16,14 +15,10 @@ testSuite =
             \() ->
                 x____replace me____x
                     |> Expect.equal ( 1, "hey" )
-        , test "there is a special comma syntax for creating tuples" <|
+        , test "Tuple.pair creates a tuple" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal ((,) 1 "hey")
-        , test "you use as many commas as there would be in the tuple" <|
-            \() ->
-                x____replace me____x
-                    |> Expect.equal ((,,) 1 "hey" [])
+                    |> Expect.equal (Tuple.pair 1 "hey")
         , test "first gets the first element of a 2-tuple" <|
             \() ->
                 x____replace me____x

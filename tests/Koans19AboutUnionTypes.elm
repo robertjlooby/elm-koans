@@ -1,8 +1,8 @@
-module Koans20AboutUnionTypes exposing (testSuite)
+module Koans19AboutUnionTypes exposing (testSuite)
 
 import Expect
-import Utils.Test exposing (describe, test)
 import Utils.Blank exposing (..)
+import Utils.Test exposing (describe, test)
 
 
 type Nucleotide
@@ -27,11 +27,12 @@ testSuite =
             \() ->
                 Base (x____replace me____x)
                     |> Expect.equal (Base C)
-          -- These are obviously different values, but they're the same type so it still compiles.
-          -- Don't overthink this one!
+
+        -- These are obviously different values, but they're the same type so it still compiles.
+        -- Don't overthink this one!
         , test "all types in the union type are the same type" <|
             \() ->
-                (Strand [ A, T, C, G ])
+                Strand [ A, T, C, G ]
                     |> Expect.equal (Base A)
         , test "case statements may be used to extract the data from the type" <|
             case Base A of
