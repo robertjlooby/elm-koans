@@ -50,15 +50,15 @@ testSuite =
         , test "filter returns the elements that return true for a predicate function" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (List.filter (\x -> modBy x 2 == 0) [ 1, 2, 3, 4 ])
+                    |> Expect.equal (List.filter (\x -> modBy 2 x == 0) [ 1, 2, 3, 4 ])
         , test "all tests whether all elements of a list return true for a predicate function" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (List.all (\x -> modBy x 2 == 0) [ 2, 4 ])
+                    |> Expect.equal (List.all (\x -> modBy 2 x == 0) [ 2, 4 ])
         , test "any tests whether any elements of a list return true for a predicate function" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (List.any (\x -> modBy x 2 == 0) [ 1, 2, 3 ])
+                    |> Expect.equal (List.any (\x -> modBy 2 x == 0) [ 1, 2, 3 ])
         , test "repeat returns a list with n copies of a value" <|
             \() ->
                 x____replace me____x
@@ -78,7 +78,7 @@ testSuite =
         , test "sortBy sorts using a function that returns a comparable" <|
             \() ->
                 x____replace me____x
-                    |> Expect.equal (List.sortBy (\x -> modBy x 3) [ 10, 6, 8 ])
+                    |> Expect.equal (List.sortBy (\x -> modBy 3 x) [ 10, 6, 8 ])
         , test ":: is the cons operator" <|
             \() ->
                 x____replace me____x
