@@ -6,9 +6,8 @@ import Html.Attributes exposing (..)
 import PathToEnlightenment
 import Process
 import Task
-import Utils.Test as KoansTest
 import Test.Runner.Failure exposing (format)
-
+import Utils.Test as KoansTest
 
 
 -- STATE
@@ -151,14 +150,17 @@ viewFinal final =
             let
                 failureText =
                     case given of
-                        Nothing -> format description reason
-                        Just x  -> "GIVEN: " ++ x ++ "\n" ++ format description reason
+                        Nothing ->
+                            format description reason
+
+                        Just x ->
+                            "GIVEN: " ++ x ++ "\n" ++ format description reason
             in
-                [ b [ style "color" "#D5200C" ]
-                    [ text "✗\n\n"
-                    , text failureText
-                    ]
+            [ b [ style "color" "#D5200C" ]
+                [ text "✗\n\n"
+                , text failureText
                 ]
+            ]
 
 
 terminalText : String -> List KoansTest.Event -> List (Html msg)
