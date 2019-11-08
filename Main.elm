@@ -1,14 +1,14 @@
 module Main exposing (..)
 
 import Browser
+import Browser.Dom
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import PathToEnlightenment
 import Process
 import Task
-import Utils.Test as KoansTest
 import Test.Runner.Failure exposing (format)
-
+import Utils.Test as KoansTest
 
 
 -- STATE
@@ -38,7 +38,11 @@ init _ =
         events =
             KoansTest.asStream PathToEnlightenment.koans
     in
-    ( Model [] events InProgress, step )
+    ( Model [] events InProgress
+    , Browser.Dom.getViewport
+        |> Task.andThen (.scene >> .height >> Browser.Dom.setViewport 0)
+        |> Task.perform (\_ -> Step)
+    )
 
 
 
@@ -62,7 +66,7 @@ attempt : KoansTest.Event -> Cmd Msg
 attempt event =
     case event of
         KoansTest.Section _ ->
-            step
+            Task.perform identity (Task.succeed Step)
 
         KoansTest.Run _ thunk ->
             let
@@ -73,11 +77,6 @@ attempt event =
             in
             Process.sleep 0
                 |> Task.perform toMsg
-
-
-step : Cmd Msg
-step =
-    Task.perform identity (Task.succeed Step)
 
 
 
@@ -151,14 +150,17 @@ viewFinal final =
             let
                 failureText =
                     case given of
-                        Nothing -> format description reason
-                        Just x  -> "GIVEN: " ++ x ++ "\n" ++ format description reason
+                        Nothing ->
+                            format description reason
+
+                        Just x ->
+                            "GIVEN: " ++ x ++ "\n" ++ format description reason
             in
-                [ b [ style "color" "#D5200C" ]
-                    [ text "✗\n\n"
-                    , text failureText
-                    ]
+            [ b [ style "color" "#D5200C" ]
+                [ text "✗\n\n"
+                , text failureText
                 ]
+            ]
 
 
 terminalText : String -> List KoansTest.Event -> List (Html msg)
