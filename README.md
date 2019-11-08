@@ -1,8 +1,8 @@
 # Elm Koans
 
 ## Instructions
-* Get [Elm](http://elm-lang.org/install) version 0.19
-  * Make sure you have version 0.19.0 with `elm --version`
+* Get [Elm](http://elm-lang.org/install) version 0.19.1
+  * Make sure you have version 0.19.1 with `elm --version`
 * Clone this repo
 * Run the tests using one of the following methods:
   * **In the browser with automatic refreshing (preferred)**
