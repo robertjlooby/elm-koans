@@ -1,6 +1,7 @@
 module Main exposing (..)
 
 import Browser
+import Browser.Dom
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import PathToEnlightenment
@@ -37,7 +38,11 @@ init _ =
         events =
             KoansTest.asStream PathToEnlightenment.koans
     in
-    ( Model [] events InProgress, step )
+    ( Model [] events InProgress
+    , Browser.Dom.getViewport
+        |> Task.andThen (.scene >> .height >> Browser.Dom.setViewport 0)
+        |> Task.perform (\_ -> Step)
+    )
 
 
 
@@ -61,7 +66,7 @@ attempt : KoansTest.Event -> Cmd Msg
 attempt event =
     case event of
         KoansTest.Section _ ->
-            step
+            Task.perform identity (Task.succeed Step)
 
         KoansTest.Run _ thunk ->
             let
@@ -72,11 +77,6 @@ attempt event =
             in
             Process.sleep 0
                 |> Task.perform toMsg
-
-
-step : Cmd Msg
-step =
-    Task.perform identity (Task.succeed Step)
 
 
 
